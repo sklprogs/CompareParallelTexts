@@ -3,7 +3,7 @@
 __author__ = 'Peter Sklyar'
 __copyright__ = 'Copyright 2015, Peter Sklyar'
 __license__ = 'GPL v.3'
-__version__ = '1.0'
+__version__ = '1.0.1'
 __email__ = 'skl.progs@gmail.com'
 
 import os
@@ -957,7 +957,7 @@ def replace(file,replace_what,replace_with):
 		
 # Записать текст в файл в режиме 'write' или 'append'
 # Critical распространяется только на попытку записи файла. Проверка режима обязана быть Critical
-def write_file(file,text,mode='w',Silent=False,Critical=False):
+def write_file(file,text,mode='w',Silent=False,Critical=False,AskRewrite=False):
 	cur_func=sys._getframe().f_code.co_name
 	Success=False
 	check_type(cur_func,file,globs['mes'].type_str)
