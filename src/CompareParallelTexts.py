@@ -147,7 +147,7 @@ def dialog_open_file(dir,my_title=None,mask='*',PersistPar=False,Critical=True):
 		# Допустимые на данный момент параметры (их также необходимо указывать): msg, title, default, filetypes
 		# Параметр default передает easygui имя файла. Если передать каталог, то последний каталог будет проигнорирован, поэтому вставляем sysdiv. Сразу default передать не получается, поэтому предварительно создаем переменную dir.
 		# mask появляется только во всплывающем списке после 'All Files'
-		if dir[-1]==sysdiv:
+		if dir[-1] == sysdiv:
 			dir=dir[:-1]
 		exist(dir)
 		if globs['AbortAll']:
@@ -1684,16 +1684,26 @@ my_program_title = ''
 root = tk.Tk()
 root.title(globs['mes'].wait)
 
-curdir = os.path.expanduser('~')
-if not os.path.exists(curdir):
-	curdir = globs['bin_dir']
-	exist(curdir)
-orig_file = dialog_open_file(dir=curdir,my_title=globs['mes'].select_file1,mask='.txt')
+mode = 'args' # 'args', 'manual'
+
+if len(sys.argv) > 2:
+	mode = 'args'
+	orig_file = sys.argv[1]
+	transl_file = sys.argv[2]
+else:
+	mode = 'manual'
+	curdir = os.path.expanduser('~')
+	if not os.path.exists(curdir):
+		curdir = globs['bin_dir']
+		exist(curdir)
+	orig_file = dialog_open_file(dir=curdir,my_title=globs['mes'].select_file1,mask='.txt')
+
 if not empty(orig_file):
 	if not get_ext(orig_file,Lower=True) == '.txt':
 		ErrorMessage(cur_mes=globs['mes'].only_txt)
-	curdir = true_dirname(orig_file)
-	transl_file = dialog_open_file(dir=curdir,my_title=globs['mes'].select_file2,mask='.txt')
+	if mode == 'manual':
+		curdir = true_dirname(orig_file)
+		transl_file = dialog_open_file(dir=curdir,my_title=globs['mes'].select_file2,mask='.txt')
 	if not empty(transl_file):
 		if not get_ext(transl_file,Lower=True) == '.txt':
 			ErrorMessage(cur_mes=globs['mes'].only_txt)
