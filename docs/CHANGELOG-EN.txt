@@ -1,2 +1,11 @@
+
+
+1.1
+* Add a configuration file
+* Compare texts during the search
+
+1.0.1
+* Fix an encoding bug
+
 1.0
 Initial release
