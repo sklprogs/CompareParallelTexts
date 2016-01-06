@@ -3,7 +3,7 @@
 __author__ = 'Peter Sklyar'
 __copyright__ = 'Copyright 2015, Peter Sklyar'
 __license__ = 'GPL v.3'
-__version__ = '1.1'
+__version__ = '1.2'
 __email__ = 'skl.progs@gmail.com'
 
 import os
@@ -507,9 +507,56 @@ def get_closest(num_lst,num):
 		word_no = test_lst.index(min(test_lst))
 	return word_no
 	
+# Вернуть позицию 1-го элемента списка 2 в списке 1, который полностью включает список 2
+# Находит только первое совпадение
+def lst_in_lst(lst1,lst2,Strict=True):
+	cur_func = sys._getframe().f_code.co_name
+	func_res = None
+	if globs['AbortAll']:
+		log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
+	else:
+		if Strict:
+			par = [x for x in range(len(lst1)) if lst1[x:x+len(lst2)] == lst2]
+		else:
+			if len(lst1) > 0 and len(lst2) > 0:
+				par = [x for x in range(len(lst1)) if lst2[0] in lst1[x:x+len(lst2)][0]]
+			else:
+				par = []
+		# Пустой список имеет длину 0
+		if len(par) > 0:
+			par = par[0]
+			func_res = par
+		else:
+			func_res = None
+		log(cur_func,lev_debug,str(func_res))
+	return func_res
+	
+# Вернуть все координаты списка 2 в списке 1
+def lst_in_lst_loop(text_lst,fragm_lst,Strict=True):
+	cur_func = sys._getframe().f_code.co_name
+	search_lst = list(text_lst)
+	found_lst = []
+	delta = 0
+	if text_lst == [] or fragm_lst == []:
+		log(cur_func,lev_warn,mes.empty_lists_not_allowed)
+	else:
+		while True:
+			if delta < len(search_lst):
+				par = lst_in_lst(search_lst[delta:],fragm_lst,Strict=Strict)
+			else:
+				break
+			if par == None:
+				break
+			else:
+				pos1 = delta + par
+				pos2 = delta + par + len(fragm_lst) - 1
+				found_lst += [[pos1,pos2]]
+				delta = pos2 + 1
+	log(cur_func,lev_debug,str(found_lst))
+	return found_lst
+	
 # Find a word in text widget(s)
-# todo: find multiple words
-def search_pane(text_db,widget,direction='forward',pane_no=1): # clear, forward, backward
+def search_pane(text_db,widget,direction='forward',pane_no=1,CaseSensitive=False,WordsOnly=False): # clear, forward, backward
 	cur_func = sys._getframe().f_code.co_name
 	if globs['AbortAll']:
 		log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
@@ -525,19 +572,31 @@ def search_pane(text_db,widget,direction='forward',pane_no=1): # clear, forward,
 		else:
 			# Preserving initial values
 			if not 'search_list' in text_db:
-				search_str = text_field(title=globs['mes'].search_str,Small=True) #search_field.get()
-				search_str = search_str.strip(' ').strip(dlb)
-				search_str = search_str.lower()
+				search = text_field(title=globs['mes'].search_str,Small=True) #search_field.get()
+				search = search.strip(' ').strip(dlb)
+				# We can remove multiple spaces in the search string here, but what if the user themselves wants to search with multiple spaces?
+				if not CaseSensitive:
+					search = search.lower()
+				# 'Punc' variable is not necessary, because we can search only in 'words', however, I keep it to see if I can enable punctuation check later
+				Punc = False
+				for i in range(len(search)):
+					if search[i] in '.,!?:;' + '()[]{}«“”»"'+"'’":
+						Punc = True
+				search = search.split(' ')
 				root.withdraw()
-				if not empty(search_str):
-				# Create a list of positions of all search matches 
-					text_db['search_list'] = []
-					i = 0
-					while i < text_db['words_num']:
-						# A less strict search - 'words_nf' (in that case, .lower() is not required)
-						if search_str in text_db['words'][i].lower():
-							text_db['search_list'].append(i)
-						i += 1
+				if not empty(search):
+				# Create a list of positions of all search matches
+				# todo: Currently it is impossible to force a punctuation check without using WordsOnly
+					if Punc:
+						if CaseSensitive:
+							text_db['search_list'] = lst_in_lst_loop(text_db['words'],search,Strict=WordsOnly)
+						else:
+							text_db['search_list'] = lst_in_lst_loop(text_db['words_low'],search,Strict=WordsOnly)
+					else:
+						if CaseSensitive:
+							text_db['search_list'] = lst_in_lst_loop(text_db['words_nf'],search,Strict=WordsOnly)
+						else:
+							text_db['search_list'] = lst_in_lst_loop(text_db['words_nf_low'],search,Strict=WordsOnly)
 					text_db['len_search_list'] = len(text_db['search_list'])
 					if text_db['len_search_list'] > 0:
 						if direction == 'forward':
@@ -559,9 +618,10 @@ def search_pane(text_db,widget,direction='forward',pane_no=1): # clear, forward,
 						else:
 							text_db['search_elem_no'] = text_db['len_search_list'] - 1
 					if len(text_db['search_list']) > 0:
-						word_no = text_db['search_list'][text_db['search_elem_no']]
-						pos1 = text_db['first_syms'][word_no]
-						pos2 = text_db['last_syms'][word_no]
+						word_no1 = text_db['search_list'][text_db['search_elem_no']][0]
+						word_no2 = text_db['search_list'][text_db['search_elem_no']][1]
+						pos1 = text_db['first_syms'][word_no1]
+						pos2 = text_db['last_syms'][word_no2]
 						lift_pos = pos1
 						pos1 = pos2tk(text_db,pos1,Even=False)
 						pos2 = pos2tk(text_db,pos2,Even=True)
@@ -1049,203 +1109,211 @@ def write_file(file,text,mode='w',Silent=False,Critical=False,AskRewrite=False):
 	
 # Проанализировать текст и вернуть информацию о нем
 def analyse_text(text,Truncate=True,Decline=False):
-	cur_func=sys._getframe().f_code.co_name
-	text_db={}
+	cur_func = sys._getframe().f_code.co_name
+	text_db = {}
 	if globs['AbortAll']:
 		log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
 	else:
-		start_time=time()
+		start_time = time()
 		check_args(cur_func,[[text,globs['mes'].type_str],[Truncate,globs['mes'].type_bool]])
 		# Нотация: lst = general list, clst = char list, wlst = word list, slst = sentence list
-		first_syms=[] # позиции первых букв слов
+		first_syms = [] # позиции первых букв слов
 		first_syms_sl=[] # позиции первых букв слов (отсчет от начала текущей строки)
-		first_syms_nf=[]
-		first_syms_nf_sl=[]
-		words=[] # список слов
+		first_syms_nf = []
+		first_syms_nf_sl = []
+		words = [] # список слов
+		words_low = [] # список слов в нижнем регистре
 		# Для dlbs и nls делать _sl бессмысленно
-		dlbs=[] # позиции dlb
-		nls=[] # номера слов, с которых начинается новая строка
-		spaces=[] # позиции пробелов
-		spaces_sl=[] # позиции пробелов (отсчет от начала текущей строки)
-		last_syms=[] # позиции последних букв слов
-		last_syms_sl=[] # позиции последних букв слов (отсчет от начала текущей строки)
-		last_syms_nf=[] # позиции последних букв слов без пунктуации
-		last_syms_nf_sl=[] # позиции последних букв слов без пунктуации (отсчет от начала текущей строки)
-		sent_nos=[] # список номеров строк для каждого слова
-		words_nf=[] # список слов без пунктуации
-		sents_sym_len=[] # Длина предложений в символах
-		sents_word_len=[] # Список количеств слов в предложениях
-		sents_text=[] # Список предложений с сохранением лишних пробелов и пунктуации
-		sents_text_nf=[] # Список предложений с сохранением лишних пробелов без пунктуации
+		dlbs = [] # позиции dlb
+		nls = [] # номера слов, с которых начинается новая строка
+		spaces = [] # позиции пробелов
+		spaces_sl = [] # позиции пробелов (отсчет от начала текущей строки)
+		last_syms = [] # позиции последних букв слов
+		last_syms_sl = [] # позиции последних букв слов (отсчет от начала текущей строки)
+		last_syms_nf = [] # позиции последних букв слов без пунктуации
+		last_syms_nf_sl = [] # позиции последних букв слов без пунктуации (отсчет от начала текущей строки)
+		sent_nos = [] # список номеров строк для каждого слова
+		words_nf = [] # список слов без пунктуации и прочих не имеющих значения символов (скобки и пр.)
+		words_nf_low = [] # тот же список, но в нижнем регистре
+		sents_sym_len = [] # Длина предложений в символах
+		sents_word_len = [] # Список количеств слов в предложениях
+		sents_text = [] # Список предложений с сохранением лишних пробелов и пунктуации
+		sents_text_nf = [] # Список предложений с сохранением лишних пробелов без пунктуации
 		# Пример: [[[0, 2], [4, 8], [10, 17]], [[34, 34], [36, 38], [40, 43]]]
-		sents_pos=[] # Список позиций символов начала и конца слов, разбитый по предложениям
-		sents_pos_sl=[] # Тот же список, но номера идут от начала строки
-		sents_pos_nf=[] # Тот же список, но без учета пунктуации
-		sents_pos_nf_sl=[] # Тот же список, но номера идут от начала строки без учета пунктуации
-		#--------------------------------------------------------------------------
+		sents_pos = [] # Список позиций символов начала и конца слов, разбитый по предложениям
+		sents_pos_sl = [] # Тот же список, но номера идут от начала строки
+		sents_pos_nf = [] # Тот же список, но без учета пунктуации
+		sents_pos_nf_sl = [] # Тот же список, но номера идут от начала строки без учета пунктуации
+		# --------------------------------------------------------------------------
 		# Truncate - удалить лишние пробелы, переносы строк. Однако, strip по строкам не делается.
 		if Truncate:
-			#text=tr_str(text)
-			pass
+			text = tr_str(text)
 		else:
-			text=text.replace(wdlb,dlb)
-		#--------------------------------------------------------------------------
-		word=''
-		k=0
-		# В принципе, текст не должен быть пуст, но мы на всякий случай инициализируем i, чтобы не возникло ошибки при maxi=i
-		i=0
+			text = text.replace(wdlb,dlb)
+		# --------------------------------------------------------------------------
+		word = ''
+		k = 0
+		# В принципе, текст не должен быть пуст, но мы на всякий случай инициализируем i, чтобы не возникло ошибки при maxi = i
+		i = 0
 		for i in range(len(text)):
-			if text[i]==dlb:
-				dlbs+=[i]
+			if text[i] == dlb:
+				dlbs += [i]
 				# Проверка защищает от двойных dlb и пробелов
-				if word!='':
+				if word != '':
 					words.append(word)
-				word=''
-				nls+=[len(words)]
-				k=-1
+					words_low.append(word.lower())
+				word = ''
+				nls += [len(words)]
+				k = - 1
 			# Необходимо разделять слова с неразрывным пробелом тоже, иначе фраза будет восприниматься как единое слово
 			elif text[i].isspace():
-				spaces+=[i]
-				spaces_sl+=[k]
-				if word!='':
+				spaces += [i]
+				spaces_sl += [k]
+				if word != '':
 					words.append(word)
-				word=''
+					words_low.append(word.lower())
+				word = ''
 			else:
-				word+=text[i]
-				if len(word)==1:
-					first_syms+=[i]
-					first_syms_sl+=[k]
+				word += text[i]
+				if len(word) == 1:
+					first_syms += [i]
+					first_syms_sl += [k]
 					if word.isdigit() or word.isalpha() or word in allowed_syms:
-						first_syms_nf+=[i]
-						first_syms_nf_sl+=[k]
+						first_syms_nf += [i]
+						first_syms_nf_sl += [k]
 					elif i+1 < len(text):
-						delta=i+1
-						kdelta=k+1
+						delta = i + 1
+						kdelta = k + 1
 						while delta < len(text) and not text[delta].isalpha() and not text[delta].isdigit() and not text[delta] in allowed_syms:
-							delta+=1
-							kdelta+=1
-						first_syms_nf+=[delta]
-						first_syms_nf_sl+=[kdelta]
+							delta += 1
+							kdelta += 1
+						first_syms_nf += [delta]
+						first_syms_nf_sl += [kdelta]
 						log(cur_func,lev_debug,globs['mes'].first_syms_cor % (i,delta))
 					else:
-						first_syms_nf+=[i]
-						first_syms_nf_sl+=[k]
+						first_syms_nf += [i]
+						first_syms_nf_sl += [k]
 						log(cur_func,lev_warn,globs['mes'].first_syms_failure)
-			k+=1
+			k += 1
 		# Добавление последнего слова
-		if word!='' and word!=dlb:
+		if word != '' and word != dlb:
 			words.append(word)
-		maxi=i
-		words_num=len(words)
-		sent_no=0
+			words_low.append(word.lower())
+		maxi = i
+		words_num = len(words)
+		sent_no = 0
 		for i in range(words_num):
-			words_nf.append(prepare_str(words[i],Extended=False)) # Ключ Extended=True удалит цифры
-			last_syms+=[first_syms[i]+len(words[i])-1]
-			last_syms_nf+=[first_syms_nf[i]+len(words_nf[i])-1]
-			last_syms_sl+=[first_syms_sl[i]+len(words[i])-1]
-			last_syms_nf_sl+=[first_syms_nf_sl[i]+len(words_nf[i])-1]
+			prepared = prepare_str(words[i],Extended=False,Lower=False) # Ключ Extended=True удалит цифры
+			words_nf.append(prepared)
+			words_nf_low.append(prepared.lower())
+			last_syms += [first_syms[i] + len(words[i]) - 1]
+			last_syms_nf += [first_syms_nf[i] + len(words_nf_low[i]) - 1]
+			last_syms_sl += [first_syms_sl[i] + len(words[i]) - 1]
+			last_syms_nf_sl += [first_syms_nf_sl[i] + len(words_nf_low[i]) - 1]
 			if i in nls:
-				sent_no+=1
-			sent_nos+=[sent_no]
-		#--------------------------------------------------------------------------	
-		sent_no=0
-		j=0
-		pos_sl=[] # Список позиций всех символов в тексте в формате [[0,0],[0,1]...[n,n]]
+				sent_no += 1
+			sent_nos += [sent_no]
+		# -------------------------------------------------------------------------- 	
+		sent_no = 0
+		j = 0
+		pos_sl = [] # Список позиций всех символов в тексте в формате [[0,0],[0,1]...[n,n]]
 		for i in range(maxi+1):
-			pos_sl+=[[sent_no,j]]
+			pos_sl += [[sent_no,j]]
 			if i in dlbs:
-				sent_no+=1
-				j=0
+				sent_no += 1
+				j = 0
 			else:
-				j+=1
-		#--------------------------------------------------------------------------
-		sents=[]
-		sents_nf=[]
-		old_sent_no=-1
-		cur_sent=[]
-		cur_sent_nf=[]
-		cur_pos=[]
-		cur_pos_nf=[]
-		cur_pos_sl=[]
-		cur_pos_nf_sl=[]
+				j += 1
+		# --------------------------------------------------------------------------
+		sents = []
+		sents_nf = []
+		old_sent_no = - 1
+		cur_sent = []
+		cur_sent_nf = []
+		cur_pos = []
+		cur_pos_nf = []
+		cur_pos_sl = []
+		cur_pos_nf_sl = []
 		for i in range(len(sent_nos)):
-			sent_no=sent_nos[i]
-			if sent_no!=old_sent_no:
-				if cur_sent!=[]:
-					sents+=[cur_sent]
-				if cur_sent_nf!=[]:
-					sents_nf+=[cur_sent_nf]
-				if cur_pos!=[]:
-					sents_pos+=[cur_pos]
-				if cur_pos_nf!=[]:
-					sents_pos_nf+=[cur_pos_nf]
-				if cur_pos_sl!=[]:
-					sents_pos_sl+=[cur_pos_sl]
-				if cur_pos_nf_sl!=[]:
-					sents_pos_nf_sl+=[cur_pos_nf_sl]
-				cur_sent=[]
-				cur_sent_nf=[]
-				cur_pos=[]
-				cur_pos_nf=[]
-				cur_pos_sl=[]
-				cur_pos_nf_sl=[]
-				old_sent_no=sent_no
-			cur_sent+=[words[i]]
-			cur_sent_nf+=[words_nf[i]]
-			cur_pos+=[[first_syms[i],last_syms[i]]]
-			cur_pos_sl+=[[first_syms_sl[i],last_syms_sl[i]]]
-			cur_pos_nf+=[[first_syms_nf[i],last_syms_nf[i]]]
-			cur_pos_nf_sl+=[[first_syms_nf_sl[i],last_syms_nf_sl[i]]]
-		#--------------------------------------------------------------------------
+			sent_no = sent_nos[i]
+			if sent_no != old_sent_no:
+				if cur_sent != []:
+					sents += [cur_sent]
+				if cur_sent_nf != []:
+					sents_nf += [cur_sent_nf]
+				if cur_pos != []:
+					sents_pos += [cur_pos]
+				if cur_pos_nf != []:
+					sents_pos_nf += [cur_pos_nf]
+				if cur_pos_sl != []:
+					sents_pos_sl += [cur_pos_sl]
+				if cur_pos_nf_sl != []:
+					sents_pos_nf_sl += [cur_pos_nf_sl]
+				cur_sent = []
+				cur_sent_nf = []
+				cur_pos = []
+				cur_pos_nf = []
+				cur_pos_sl = []
+				cur_pos_nf_sl = []
+				old_sent_no = sent_no
+			cur_sent += [words[i]]
+			cur_sent_nf += [words_nf_low[i]]
+			cur_pos += [[first_syms[i],last_syms[i]]]
+			cur_pos_sl += [[first_syms_sl[i],last_syms_sl[i]]]
+			cur_pos_nf += [[first_syms_nf[i],last_syms_nf[i]]]
+			cur_pos_nf_sl += [[first_syms_nf_sl[i],last_syms_nf_sl[i]]]
+		# --------------------------------------------------------------------------
 		# Добавление последнего предложения
-		if cur_sent!=[]:
-			sents+=[cur_sent]
-		if cur_sent_nf!=[]:
-			sents_nf+=[cur_sent_nf]
-		if cur_pos!=[]:
-			sents_pos+=[cur_pos]
-		if cur_pos_nf!=[]:
-			sents_pos_nf+=[cur_pos_nf]
-		if cur_pos_sl!=[]:
-			sents_pos_sl+=[cur_pos_sl]
-		if cur_pos_nf_sl!=[]:
-			sents_pos_nf_sl+=[cur_pos_nf_sl]
-		#--------------------------------------------------------------------------
-		# +1 к номеру последнего предложения
-		sents_num=len(sents)
-		#--------------------------------------------------------------------------
+		if cur_sent != []:
+			sents += [cur_sent]
+		if cur_sent_nf != []:
+			sents_nf += [cur_sent_nf]
+		if cur_pos != []:
+			sents_pos += [cur_pos]
+		if cur_pos_nf != []:
+			sents_pos_nf+= [cur_pos_nf]
+		if cur_pos_sl != []:
+			sents_pos_sl += [cur_pos_sl]
+		if cur_pos_nf_sl != []:
+			sents_pos_nf_sl += [cur_pos_nf_sl]
+		# --------------------------------------------------------------------------
+		# + 1 к номеру последнего предложения
+		sents_num = len(sents)
+		# --------------------------------------------------------------------------
 		for i in range(sents_num):
 			if len(sents_pos_sl[i]) > 0:
-				sents_sym_len+=[sents_pos_sl[i][-1][1]]
+				sents_sym_len += [sents_pos_sl[i][-1][1]]
 			else:
-				sents_sym_len+=[0]
+				sents_sym_len += [0]
 				log(cur_func,lev_warn,globs['mes'].zero_len_sent % i)
-		#--------------------------------------------------------------------------
-		# +1 к номеру последнего слова в предложении
+		# --------------------------------------------------------------------------
+		# + 1 к номеру последнего слова в предложении
 		for i in range(sents_num):
-			sents_word_len+=[len(sents_pos[i])]
-		#--------------------------------------------------------------------------
+			sents_word_len += [len(sents_pos[i])]
+		# --------------------------------------------------------------------------
 		for i in range(sents_num):
 			if sents_sym_len[i] > 0:
-				dummy=' '*(sents_sym_len[i]-1)
+				dummy = ' '*(sents_sym_len[i] - 1)
 			else:
-				dummy=''
-			dummy=list(dummy)
-			dummy_nf=list(dummy)
+				dummy = ''
+			dummy = list(dummy)
+			dummy_nf = list(dummy)
 			for j in range(sents_word_len[i]):
-				pos1=sents_pos_sl[i][j][0]
-				pos1_nf=sents_pos_nf_sl[i][j][0]
-				pos2=sents_pos_sl[i][j][1]
-				pos2_nf=sents_pos_nf_sl[i][j][1]
-				dummy[pos1:pos2+1]=sents[i][j]
-				dummy_nf[pos1_nf:pos2_nf+1]=sents_nf[i][j]
-			sents_text+=[''.join(dummy)]
-			sents_text_nf+=[''.join(dummy_nf)]
-		#--------------------------------------------------------------------------
-		detailed_declined=decline_nom(words_nf,Decline=Decline)
-		#--------------------------------------------------------------------------
+				pos1 = sents_pos_sl[i][j][0]
+				pos1_nf = sents_pos_nf_sl[i][j][0]
+				pos2 = sents_pos_sl[i][j][1]
+				pos2_nf = sents_pos_nf_sl[i][j][1]
+				dummy[pos1:pos2+1] = sents[i][j]
+				dummy_nf[pos1_nf:pos2_nf+1] = sents_nf[i][j]
+			sents_text += [''.join(dummy)]
+			sents_text_nf += [''.join(dummy_nf)]
+		# --------------------------------------------------------------------------
+		detailed_declined = decline_nom(words_nf_low,Decline=Decline)
+		# --------------------------------------------------------------------------
 		assert(words_num==len(words))
+		assert(words_num==len(words_low))
 		assert(words_num==len(words_nf))
+		assert(words_num==len(words_nf_low))
 		assert(words_num==len(first_syms))
 		assert(words_num==len(first_syms_sl))
 		assert(words_num==len(first_syms_nf))
@@ -1262,13 +1330,15 @@ def analyse_text(text,Truncate=True,Decline=False):
 		assert(sents_num==len(sents_pos_nf_sl))
 		assert(sents_num==len(sents_text))
 		assert(sents_num==len(sents_text_nf))
-		#--------------------------------------------------------------------------
-		end_time=time()
+		# --------------------------------------------------------------------------
+		end_time = time()
 		log(cur_func,lev_info,globs['mes'].analysis_finished % str(end_time-start_time))
-		#--------------------------------------------------------------------------
+		# --------------------------------------------------------------------------
 		log(cur_func,lev_debug,'len (=maxi+1): %d' % (maxi+1))
 		log(cur_func,lev_debug,'words: %s' % str(words))
+		log(cur_func,lev_debug,'words_low: %s' % str(words_low))
 		log(cur_func,lev_debug,'words_nf: %s' % str(words_nf))
+		log(cur_func,lev_debug,'words_nf_low: %s' % str(words_nf_low))
 		log(cur_func,lev_debug,'nls: %s' % str(nls))
 		log(cur_func,lev_debug,'dlbs: %s' % str(dlbs))
 		log(cur_func,lev_debug,'spaces: %s' % str(spaces))
@@ -1296,8 +1366,8 @@ def analyse_text(text,Truncate=True,Decline=False):
 		log(cur_func,lev_debug,'sents_text: %s' % str(sents_text))
 		log(cur_func,lev_debug,'sents_text_nf: %s' % str(sents_text_nf))
 		log(cur_func,lev_debug,'detailed_declined: %s' % str(detailed_declined))
-		#--------------------------------------------------------------------------
-		text_db={'len':maxi+1,'words_num':words_num,'words':words,'words_nf':words_nf,
+		# --------------------------------------------------------------------------
+		text_db = {'len':maxi + 1,'words_num':words_num,'words':words,'words_low':words_low,'words_nf':words_nf,'words_nf_low':words_nf_low,
 				'first_syms':first_syms,'first_syms_nf':first_syms_nf,'first_syms_sl':first_syms_sl,
 				'first_syms_nf_sl':first_syms_nf_sl,'last_syms':last_syms,'last_syms_sl':last_syms_sl,
 				'last_syms_nf':last_syms_nf,'last_syms_nf_sl':last_syms_nf_sl,'nls':nls,'dlbs':dlbs,
@@ -1309,30 +1379,34 @@ def analyse_text(text,Truncate=True,Decline=False):
 		return text_db
 		
 # Преобразовать строку в нижний регистр, удалить пунктуацию и алфавитную нумерацию
-def prepare_str(line,Extended=False):
-	cur_func=sys._getframe().f_code.co_name
+def prepare_str(line,Extended=False,Lower=True,PuncOnly=False):
+	cur_func = sys._getframe().f_code.co_name
 	if globs['AbortAll']:
 		log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
 	else:
-		line=line.lower()
-		line=line.replace('ё','е')
-		line=line.replace('"','')
-		line=line.replace('“','')
-		line=line.replace('”','')
-		line=line.replace('«','')
-		line=line.replace('»','')
-		line=line.replace('(','')
-		line=line.replace(')','')
-		line=line.replace('[','')
-		line=line.replace(']','')
-		line=line.replace('{','')
-		line=line.replace('}','')
-		line=line.replace('*','')
-		line=delete_punctuation(line)
-		line=delete_alphabetic_numeration(line)
+		if Lower:
+			line = line.lower()
+		line = line.replace('ё','е')
+		if PuncOnly:
+			line = delete_punctuation(line)
+		else:
+			line = line.replace('"','')
+			line = line.replace('“','')
+			line = line.replace('”','')
+			line = line.replace('«','')
+			line = line.replace('»','')
+			line = line.replace('(','')
+			line = line.replace(')','')
+			line = line.replace('[','')
+			line = line.replace(']','')
+			line = line.replace('{','')
+			line = line.replace('}','')
+			line = line.replace('*','')
+			line = delete_punctuation(line)
+			line = delete_alphabetic_numeration(line)
 		if Extended:
-			line=re.sub('\d+','',line)
-			#line=line.replace('-','')
+			line = re.sub('\d+','',line)
+			#line = line.replace('-','')
 		#log(cur_func,lev_debug,str(line))
 	return line
 	

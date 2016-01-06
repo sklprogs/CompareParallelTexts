@@ -1,4 +1,5 @@
-
+1.2
+* Search multiple words
 
 1.1
 * Add a configuration file
