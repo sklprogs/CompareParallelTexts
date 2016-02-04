@@ -3,7 +3,7 @@
 __author__ = 'Peter Sklyar'
 __copyright__ = 'Copyright 2015, Peter Sklyar'
 __license__ = 'GPL v.3'
-__version__ = '1.2'
+__version__ = '1.3'
 __email__ = 'skl.progs@gmail.com'
 
 import os
@@ -507,21 +507,14 @@ def get_closest(num_lst,num):
 		word_no = test_lst.index(min(test_lst))
 	return word_no
 	
-# Вернуть позицию 1-го элемента списка 2 в списке 1, который полностью включает список 2
-# Находит только первое совпадение
+# Вернуть позицию 1-го элемента списка 2 в списке 1, который полностью включает список 2 (строгое совпадение)
 def lst_in_lst(lst1,lst2,Strict=True):
 	cur_func = sys._getframe().f_code.co_name
 	func_res = None
 	if globs['AbortAll']:
 		log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
 	else:
-		if Strict:
-			par = [x for x in range(len(lst1)) if lst1[x:x+len(lst2)] == lst2]
-		else:
-			if len(lst1) > 0 and len(lst2) > 0:
-				par = [x for x in range(len(lst1)) if lst2[0] in lst1[x:x+len(lst2)][0]]
-			else:
-				par = []
+		par = [x for x in range(len(lst1)) if lst1[x:x+len(lst2)] == lst2]
 		# Пустой список имеет длину 0
 		if len(par) > 0:
 			par = par[0]
@@ -531,8 +524,8 @@ def lst_in_lst(lst1,lst2,Strict=True):
 		log(cur_func,lev_debug,str(func_res))
 	return func_res
 	
-# Вернуть все координаты списка 2 в списке 1
-def lst_in_lst_loop(text_lst,fragm_lst,Strict=True):
+# Вернуть все координаты списка 2 в списке 1 (строгое совпадение)
+def lst_in_lst_loop(text_lst,fragm_lst):
 	cur_func = sys._getframe().f_code.co_name
 	search_lst = list(text_lst)
 	found_lst = []
@@ -542,7 +535,7 @@ def lst_in_lst_loop(text_lst,fragm_lst,Strict=True):
 	else:
 		while True:
 			if delta < len(search_lst):
-				par = lst_in_lst(search_lst[delta:],fragm_lst,Strict=Strict)
+				par = lst_in_lst(search_lst[delta:],fragm_lst)
 			else:
 				break
 			if par == None:
@@ -555,8 +548,8 @@ def lst_in_lst_loop(text_lst,fragm_lst,Strict=True):
 	log(cur_func,lev_debug,str(found_lst))
 	return found_lst
 	
-# Find a word in text widget(s)
-def search_pane(text_db,widget,direction='forward',pane_no=1,CaseSensitive=False,WordsOnly=False): # clear, forward, backward
+# Find word(s) in text widget(s)
+def search_pane(text_db,widget,direction='forward',pane_no=1,CaseSensitive=False,xoffset=0,yoffset=0,Silent=False): # clear, forward, backward
 	cur_func = sys._getframe().f_code.co_name
 	if globs['AbortAll']:
 		log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
@@ -565,40 +558,38 @@ def search_pane(text_db,widget,direction='forward',pane_no=1,CaseSensitive=False
 			if 'search_list' in text_db:
 				del text_db['search_list']
 			direction = 'forward'
-		elif direction  != 'forward' and direction  != 'backward':
+		elif direction != 'forward' and direction != 'backward':
 			ErrorMessage(cur_func,globs['mes'].unknown_mode % (str(direction),'clear, forward, backward'))
 		if globs['AbortAll']:
 			log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
 		else:
 			# Preserving initial values
 			if not 'search_list' in text_db:
-				search = text_field(title=globs['mes'].search_str,Small=True) #search_field.get()
+				search = text_field(title=globs['mes'].search_str,Small=True,xoffset=xoffset,yoffset=yoffset) #search_field.get()
 				search = search.strip(' ').strip(dlb)
 				# We can remove multiple spaces in the search string here, but what if the user themselves wants to search with multiple spaces?
+				while '  ' in search:
+					search = search.replace('  ',' ')
 				if not CaseSensitive:
 					search = search.lower()
-				# 'Punc' variable is not necessary, because we can search only in 'words', however, I keep it to see if I can enable punctuation check later
-				Punc = False
-				for i in range(len(search)):
-					if search[i] in '.,!?:;' + '()[]{}«“”»"'+"'’":
-						Punc = True
-				search = search.split(' ')
+				search = list(search)
 				root.withdraw()
 				if not empty(search):
 				# Create a list of positions of all search matches
-				# todo: Currently it is impossible to force a punctuation check without using WordsOnly
-					if Punc:
-						if CaseSensitive:
-							text_db['search_list'] = lst_in_lst_loop(text_db['words'],search,Strict=WordsOnly)
-						else:
-							text_db['search_list'] = lst_in_lst_loop(text_db['words_low'],search,Strict=WordsOnly)
+					if CaseSensitive:
+						text_db['search_list'] = lst_in_lst_loop(text_db['text'],search)
 					else:
-						if CaseSensitive:
-							text_db['search_list'] = lst_in_lst_loop(text_db['words_nf'],search,Strict=WordsOnly)
-						else:
-							text_db['search_list'] = lst_in_lst_loop(text_db['words_nf_low'],search,Strict=WordsOnly)
+						text_db['search_list'] = lst_in_lst_loop(text_db['text_low'],search)
 					text_db['len_search_list'] = len(text_db['search_list'])
 					if text_db['len_search_list'] > 0:
+						# Преобразую позиции найденных символов в позиции слов
+						for i in range(text_db['len_search_list']):
+							assert len(text_db['search_list'][i]) >= 2
+							get_word_by_pos(text_db,text_db['search_list'][i][0])
+							text_db['search_list'][i][0] = text_db['word_no']
+							get_word_by_pos(text_db,text_db['search_list'][i][1])
+							text_db['search_list'][i][1] = text_db['word_no']
+						log(cur_func,lev_debug,"text_db['search_list']: %s" % str(text_db['search_list'][i]))
 						if direction == 'forward':
 							# A number of a current search result ('search_elem_no') in the list of search matches ('search_list')
 							text_db['search_elem_no'] = -1
@@ -636,9 +627,13 @@ def search_pane(text_db,widget,direction='forward',pane_no=1,CaseSensitive=False
 						mark_add(widget=widget,mark_name='insert',postk=pos1)
 						tag_add_config(widget=widget,tag_name='search',pos1tk=pos1,pos2tk=pos2,mode='bg',color='gray',DeletePrevious=False)
 						drag_screen(widget=widget,mark_name='lift_pos',pane_no=pane_no)
+				else:
+					mestype(cur_func,globs['mes'].not_found2,Info=True,Silent=Silent)
+					root.withdraw()
+					#log(cur_func,lev_warn,globs['mes'].not_found3 % str(search))
 						
 # Конструктор для создания окна для манипуляции текстом
-def text_field(title=None,user_text=err_mes_empty_input,CheckSpelling=False,GoTo='',Insist=False,SelectAll=False,ReadOnly=False,Small=False,TrimEnd=False): # Edit=True равноценно user_text!=err_mes_empty_input
+def text_field(title=None,user_text=err_mes_empty_input,CheckSpelling=False,GoTo='',Insist=False,SelectAll=False,ReadOnly=False,Small=False,TrimEnd=False,CursorTk='1.0',xoffset=0,yoffset=0): # Edit=True равноценно user_text!=err_mes_empty_input
 	cur_func=sys._getframe().f_code.co_name
 	func_res=''
 	if globs['AbortAll']:
@@ -1144,13 +1139,13 @@ def analyse_text(text,Truncate=True,Decline=False):
 		sents_pos_sl = [] # Тот же список, но номера идут от начала строки
 		sents_pos_nf = [] # Тот же список, но без учета пунктуации
 		sents_pos_nf_sl = [] # Тот же список, но номера идут от начала строки без учета пунктуации
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		# Truncate - удалить лишние пробелы, переносы строк. Однако, strip по строкам не делается.
 		if Truncate:
 			text = tr_str(text)
 		else:
 			text = text.replace(wdlb,dlb)
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		word = ''
 		k = 0
 		# В принципе, текст не должен быть пуст, но мы на всякий случай инициализируем i, чтобы не возникло ошибки при maxi = i
@@ -1213,7 +1208,7 @@ def analyse_text(text,Truncate=True,Decline=False):
 			if i in nls:
 				sent_no += 1
 			sent_nos += [sent_no]
-		# -------------------------------------------------------------------------- 	
+		#---------------------------------------------------------------------- 	
 		sent_no = 0
 		j = 0
 		pos_sl = [] # Список позиций всех символов в тексте в формате [[0,0],[0,1]...[n,n]]
@@ -1224,7 +1219,7 @@ def analyse_text(text,Truncate=True,Decline=False):
 				j = 0
 			else:
 				j += 1
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		sents = []
 		sents_nf = []
 		old_sent_no = - 1
@@ -1262,7 +1257,7 @@ def analyse_text(text,Truncate=True,Decline=False):
 			cur_pos_sl += [[first_syms_sl[i],last_syms_sl[i]]]
 			cur_pos_nf += [[first_syms_nf[i],last_syms_nf[i]]]
 			cur_pos_nf_sl += [[first_syms_nf_sl[i],last_syms_nf_sl[i]]]
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		# Добавление последнего предложения
 		if cur_sent != []:
 			sents += [cur_sent]
@@ -1276,21 +1271,21 @@ def analyse_text(text,Truncate=True,Decline=False):
 			sents_pos_sl += [cur_pos_sl]
 		if cur_pos_nf_sl != []:
 			sents_pos_nf_sl += [cur_pos_nf_sl]
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		# + 1 к номеру последнего предложения
 		sents_num = len(sents)
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		for i in range(sents_num):
 			if len(sents_pos_sl[i]) > 0:
 				sents_sym_len += [sents_pos_sl[i][-1][1]]
 			else:
 				sents_sym_len += [0]
 				log(cur_func,lev_warn,globs['mes'].zero_len_sent % i)
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		# + 1 к номеру последнего слова в предложении
 		for i in range(sents_num):
 			sents_word_len += [len(sents_pos[i])]
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		for i in range(sents_num):
 			if sents_sym_len[i] > 0:
 				dummy = ' '*(sents_sym_len[i] - 1)
@@ -1307,9 +1302,9 @@ def analyse_text(text,Truncate=True,Decline=False):
 				dummy_nf[pos1_nf:pos2_nf+1] = sents_nf[i][j]
 			sents_text += [''.join(dummy)]
 			sents_text_nf += [''.join(dummy_nf)]
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		detailed_declined = decline_nom(words_nf_low,Decline=Decline)
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		assert(words_num==len(words))
 		assert(words_num==len(words_low))
 		assert(words_num==len(words_nf))
@@ -1330,10 +1325,10 @@ def analyse_text(text,Truncate=True,Decline=False):
 		assert(sents_num==len(sents_pos_nf_sl))
 		assert(sents_num==len(sents_text))
 		assert(sents_num==len(sents_text_nf))
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		end_time = time()
 		log(cur_func,lev_info,globs['mes'].analysis_finished % str(end_time-start_time))
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		log(cur_func,lev_debug,'len (=maxi+1): %d' % (maxi+1))
 		log(cur_func,lev_debug,'words: %s' % str(words))
 		log(cur_func,lev_debug,'words_low: %s' % str(words_low))
@@ -1366,7 +1361,7 @@ def analyse_text(text,Truncate=True,Decline=False):
 		log(cur_func,lev_debug,'sents_text: %s' % str(sents_text))
 		log(cur_func,lev_debug,'sents_text_nf: %s' % str(sents_text_nf))
 		log(cur_func,lev_debug,'detailed_declined: %s' % str(detailed_declined))
-		# --------------------------------------------------------------------------
+		#----------------------------------------------------------------------
 		text_db = {'len':maxi + 1,'words_num':words_num,'words':words,'words_low':words_low,'words_nf':words_nf,'words_nf_low':words_nf_low,
 				'first_syms':first_syms,'first_syms_nf':first_syms_nf,'first_syms_sl':first_syms_sl,
 				'first_syms_nf_sl':first_syms_nf_sl,'last_syms':last_syms,'last_syms_sl':last_syms_sl,
@@ -1375,7 +1370,7 @@ def analyse_text(text,Truncate=True,Decline=False):
 				'sents_num':sents_num,'sents_pos':sents_pos,'sents_pos_nf':sents_pos_nf,'sents':sents,
 				'sents_nf':sents_nf,'sents_pos_sl':sents_pos_sl,'sents_pos_nf_sl':sents_pos_nf_sl,
 				'sents_sym_len':sents_sym_len,'sents_word_len':sents_word_len,'sents_text':sents_text,
-				'sents_text_nf':sents_text_nf,'declined':detailed_declined,'text':text}
+				'sents_text_nf':sents_text_nf,'declined':detailed_declined,'text':text,'text_low':text.lower()}
 		return text_db
 		
 # Преобразовать строку в нижний регистр, удалить пунктуацию и алфавитную нумерацию
@@ -1577,7 +1572,8 @@ def default_config(config='cpt',Init=True):
                               'default_hint_border_color':'navy',
                               'default_hint_direction':'top',
                               'font_style':'Sans 14',
-                              'icon_cpt':'icon_64x64_cpt.gif'
+                              'icon_cpt':'icon_64x64_cpt.gif',
+							  'selected_pane_color':'old lace'
                            })
 	else:
 		ErrorMessage(cur_func,globs['mes'].unknown_mode % (str(config),'cpt'))
@@ -1895,6 +1891,18 @@ def compare_gui(text1_db,text2_db,BothPanes=True):
 			else:
 				compare_callback2()
 	#--------------------------------------------------------------------------		
+	# Установить фокус на область, а также изменить цвет этой области
+	def select_pane(widgets,sel_widget):
+		'''
+		# Для мигания окном можно сделать следующее:
+		sel_widget.config(bg='red')
+		root.update_idletasks()
+		sel_widget.config(bg='white')'''
+		widgets[0].config(bg='white')
+		widgets[1].config(bg='white')
+		sel_widget.focus_force()
+		sel_widget.config(bg=globs['var']['selected_pane_color'])
+	#--------------------------------------------------------------------------		
 	cur_func = sys._getframe().f_code.co_name
 	if globs['AbortAll']:
 		log(cur_func,lev_warn,globs['mes'].abort_func % cur_func)
@@ -1933,6 +1941,11 @@ def compare_gui(text1_db,text2_db,BothPanes=True):
 			mark_add(widget=txt1,mark_name='insert',postk=word_pos)
 		else:
 			mark_add(widget=txt1,mark_name='insert',postk='1.0')
+		# Select Pane 1
+		select_pane([txt1,txt2],txt1)
+		#----------------------------------------------------------------------
+		# Create bindings to select matches
+		# Pane 1
 		create_binding(widget=txt1,bindings=['<Return>','<KP_Enter>','<ButtonRelease-1>','<Left>','<Right>','<Up>','<Down>','<Prior>','<Next>','<Control-Left>','<Control-Right>','<Home>','<End>','<Control-Home>','<Control-End>'],action=lambda e: compare_callback1())
 		if BothPanes:
 			create_binding(widget=txt2,bindings=['<Return>','<KP_Enter>','<ButtonRelease-1>','<Left>','<Right>','<Up>','<Down>','<Prior>','<Next>','<Control-Left>','<Control-Right>','<Home>','<End>','<Control-Home>','<Control-End>'],action=lambda e: compare_callback2())
@@ -1945,6 +1958,17 @@ def compare_gui(text1_db,text2_db,BothPanes=True):
 		create_binding(widget=txt2,bindings=globs['var']['bind_search_article_forward'],action=lambda e:instant_search(text2_db,txt2,direction='forward',pane_no=2))
 		create_binding(widget=txt2,bindings=globs['var']['bind_search_article_backward'],action=lambda e:instant_search(text2_db,txt2,direction='backward',pane_no=2))
 		create_binding(widget=txt2,bindings=globs['var']['bind_re_search_article'],action=lambda e:instant_search(text2_db,txt2,direction='clear',pane_no=2))
+		#----------------------------------------------------------------------
+		# Switch between panes by using hotkeys
+		create_binding(widget=top,bindings='<Alt-Key-1>',action=lambda e:select_pane([txt1,txt2],txt1))
+		create_binding(widget=top,bindings='<Control-Key-1>',action=lambda e:select_pane([txt1,txt2],txt1))
+		create_binding(widget=top,bindings='<Alt-Key-2>',action=lambda e:select_pane([txt1,txt2],txt2))
+		create_binding(widget=top,bindings='<Control-Key-2>',action=lambda e:select_pane([txt1,txt2],txt2))
+		#----------------------------------------------------------------------
+		# Activate panes when clicked
+		create_binding(widget=txt1,bindings='<Button-1>',action=lambda e:select_pane([txt1,txt2],txt1))
+		create_binding(widget=txt2,bindings='<Button-1>',action=lambda e:select_pane([txt1,txt2],txt2))
+		#----------------------------------------------------------------------
 		compare_callback1()
 		top.wait_window()
 	

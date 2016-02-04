@@ -1,3 +1,10 @@
+
+
+1.3
+* Fix the search
+* Color an active pane
+* Use Ctrl-1 (Alt-1) or Ctrl-2 (Alt-2) to move to the first/second pane correspondingly
+
 1.2
 * Search multiple words
 
