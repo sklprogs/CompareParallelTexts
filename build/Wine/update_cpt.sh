@@ -9,8 +9,9 @@ cp -ru build/exe.win32-3.4/* CompareParallelTexts/
 cp -ru locale resources CompareParallelTexts/
 cd CompareParallelTexts && wine CompareParallelTexts.exe
 read -p "Update the archive? (y/n) " choice
+cd ..
 if [ "$choice" = "y" ] || [ "$choice" = "Y" ]; then
-	cd .. && 7z a CompareParallelTexts.7z CompareParallelTexts/ && rm -r build CompareParallelTexts
+	7z a CompareParallelTexts.7z CompareParallelTexts/ && rm -r build CompareParallelTexts
 	mv -fv $HOME/tmp/ars/CompareParallelTexts.7z $HOME/tmp/ars/CompareParallelTexts\ \(OLD\).7z
 	mv -v ./CompareParallelTexts.7z $HOME/tmp/ars/CompareParallelTexts.7z
 fi
