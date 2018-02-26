@@ -3,8 +3,9 @@
 
 import gettext, gettext_windows
 gettext_windows.setup_env()
-gettext.install('shared','./locale')
+gettext.install('CompareParallelTexts','./locale')
 
+import easygui   as eg
 import shared    as sh
 import sharedGUI as sg
 
@@ -61,39 +62,48 @@ def synchronize(event=None):
 
 if __name__ == '__main__':
     sg.objs.start()
-    panes = sg.Panes()
     
-    file1 = '/tmp/orig all - ru.txt'
-    file2 = '/tmp/orig all - en (OCR).txt'
+    file1 = eg.fileopenbox (title     = _('Load 1st text (Cyrillic characters)')
+                           ,filetypes = ['*.txt']
+                           )
+                           
+    if sh.File(file=file1).Success:
+        file2 = eg.fileopenbox (title     = _('Load 2nd text (Latin characters)')
+                               ,default   = file1
+                               ,filetypes = ['*.txt']
+                               )
+        if sh.File(file=file2).Success:
+            text1 = sh.ReadTextFile(file1).get()
+            text2 = sh.ReadTextFile(file2).get()
 
-    text1 = sh.ReadTextFile(file1).get()
-    text2 = sh.ReadTextFile(file2).get()
-
-    text1 = sh.Text(text=text1,Auto=True).text
-    text2 = sh.Text(text=text2,Auto=True).text
-    
-    words1 = sh.Words (text = text1
-                      ,Auto = False
-                      )
-    words2 = sh.Words (text = text2
-                      ,Auto = False
-                      )
-    
-    refs = sh.References (words1 = words1
-                         ,words2 = words2
-                         )
-    
-    panes.reset (words1 = refs.words1
-                ,words2 = refs.words2
-                )
-                
-    panes.pane1.insert(text1)
-    panes.pane2.insert(text2)
-    
-    sg.bind (obj      = panes.pane1
-            ,bindings = '<ButtonRelease-1>'
-            ,action   = synchronize
-            )
-    
-    panes.show()
+            text1 = sh.Text(text=text1,Auto=True).text
+            text2 = sh.Text(text=text2,Auto=True).text
+            
+            words1 = sh.Words (text = text1
+                              ,Auto = False
+                              )
+            words2 = sh.Words (text = text2
+                              ,Auto = False
+                              )
+            
+            refs = sh.References (words1 = words1
+                                 ,words2 = words2
+                                 )
+            
+            panes = sg.Panes()
+            panes.reset (words1 = refs.words1
+                        ,words2 = refs.words2
+                        )
+                        
+            panes.pane1.insert(text1)
+            panes.pane2.insert(text2)
+            
+            sg.bind (obj      = panes.pane1
+                    ,bindings = '<ButtonRelease-1>'
+                    ,action   = synchronize
+                    )
+            
+            panes.show()
+    #todo: fix quitting
+    sg.objs.root().kill()
     sg.objs.end()
