@@ -1,0 +1,1351 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CompareParallelTexts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-26 04:47+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Peter Sklyar <skl.progs@gmail.com>\n"
+"Language-Team: Peter Sklyar <skl.progs@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: /usr/local/bin/CompareParallelTexts\n"
+"X-Poedit-SearchPath-0: /usr/local/bin/CompareParallelTexts\n"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:27
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:33
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:39
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:59
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:132
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:137
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:156
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:171
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:182
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:197
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:213
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:219
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:416
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:828
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:841
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:850
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:859
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:877
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:894
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:901
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:964
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1454
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1705
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1722
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1899
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1912
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1967
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2091
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2217
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2236
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2253
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2258
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2265
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2279
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2291
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2302
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2311
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2322
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2354
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2359
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2407
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2504
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2603
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2610
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2616
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2620
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2631
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2636
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2735
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2739
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2742
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2862
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2884
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2896
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2912
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2924
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3053
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3084
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3184
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3275
+#: /usr/local/bin/CompareParallelTexts/shared.py:220
+#: /usr/local/bin/CompareParallelTexts/shared.py:226
+#: /usr/local/bin/CompareParallelTexts/shared.py:235
+#: /usr/local/bin/CompareParallelTexts/shared.py:245
+#: /usr/local/bin/CompareParallelTexts/shared.py:255
+#: /usr/local/bin/CompareParallelTexts/shared.py:332
+#: /usr/local/bin/CompareParallelTexts/shared.py:354
+#: /usr/local/bin/CompareParallelTexts/shared.py:364
+#: /usr/local/bin/CompareParallelTexts/shared.py:384
+#: /usr/local/bin/CompareParallelTexts/shared.py:406
+#: /usr/local/bin/CompareParallelTexts/shared.py:461
+#: /usr/local/bin/CompareParallelTexts/shared.py:471
+#: /usr/local/bin/CompareParallelTexts/shared.py:625
+#: /usr/local/bin/CompareParallelTexts/shared.py:650
+#: /usr/local/bin/CompareParallelTexts/shared.py:763
+#: /usr/local/bin/CompareParallelTexts/shared.py:778
+#: /usr/local/bin/CompareParallelTexts/shared.py:857
+#: /usr/local/bin/CompareParallelTexts/shared.py:894
+#: /usr/local/bin/CompareParallelTexts/shared.py:1545
+#: /usr/local/bin/CompareParallelTexts/shared.py:1577
+#: /usr/local/bin/CompareParallelTexts/shared.py:1595
+#: /usr/local/bin/CompareParallelTexts/shared.py:1625
+#: /usr/local/bin/CompareParallelTexts/shared.py:1701
+#: /usr/local/bin/CompareParallelTexts/shared.py:1791
+#: /usr/local/bin/CompareParallelTexts/shared.py:1798
+#: /usr/local/bin/CompareParallelTexts/shared.py:1901
+#: /usr/local/bin/CompareParallelTexts/shared.py:1908
+#: /usr/local/bin/CompareParallelTexts/shared.py:1921
+#: /usr/local/bin/CompareParallelTexts/shared.py:2081
+#: /usr/local/bin/CompareParallelTexts/shared.py:2107
+#: /usr/local/bin/CompareParallelTexts/shared.py:2236
+#: /usr/local/bin/CompareParallelTexts/shared.py:2409
+#: /usr/local/bin/CompareParallelTexts/shared.py:2439
+#: /usr/local/bin/CompareParallelTexts/shared.py:2589
+#: /usr/local/bin/CompareParallelTexts/shared.py:2761
+#: /usr/local/bin/CompareParallelTexts/shared.py:2797
+#: /usr/local/bin/CompareParallelTexts/shared.py:2890
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:28
+#, python-format
+msgid "Failed to enable key combination \"%s\"!"
+msgstr "Не удалось задействовать сочетание клавиш \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:34
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1913
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1968
+#: /usr/local/bin/CompareParallelTexts/shared.py:2294
+#: /usr/local/bin/CompareParallelTexts/shared.py:3471
+#: /usr/local/bin/CompareParallelTexts/shared.py:3477
+#, python-format
+msgid "Wrong input data: \"%s\""
+msgstr "Недопустимые входные данные: \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:40
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:417
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2218
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2237
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2259
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2266
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2280
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2292
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2303
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2312
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2323
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2408
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2969
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3185
+#: /usr/local/bin/CompareParallelTexts/shared.py:559
+#: /usr/local/bin/CompareParallelTexts/shared.py:779
+#: /usr/local/bin/CompareParallelTexts/shared.py:1474
+#: /usr/local/bin/CompareParallelTexts/shared.py:2005
+#: /usr/local/bin/CompareParallelTexts/shared.py:2698
+#: /usr/local/bin/CompareParallelTexts/shared.py:2778
+#: /usr/local/bin/CompareParallelTexts/shared.py:3552
+#: /usr/local/bin/CompareParallelTexts/shared.py:4129
+msgid "Wrong input data!"
+msgstr "Недопустимые входные данные!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:46
+msgid "Plain text (UTF-8)"
+msgstr "Обычный текст (UTF-8)"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:47
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:48
+msgid "Web-page"
+msgstr "Веб-страница"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:49
+msgid "All files"
+msgstr "Все файлы"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:54
+msgid "Save As:"
+msgstr "Сохранить как:"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:60
+msgid "Failed to select a file!"
+msgstr "Не удалось выбрать файл!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:75
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:80
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:361
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:377
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:388
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:398
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:429
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:451
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:481
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:512
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:527
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:538
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:748
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:759
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:800
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:912
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:975
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:991
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1017
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1063
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1147
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1174
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1562
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1727
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2231
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2591
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2608
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2619
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2679
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2684
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2729
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2742
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2891
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2902
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2919
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2968
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3045
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3214
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3225
+#: /usr/local/bin/CompareParallelTexts/shared.py:147
+#: /usr/local/bin/CompareParallelTexts/shared.py:288
+#: /usr/local/bin/CompareParallelTexts/shared.py:298
+#: /usr/local/bin/CompareParallelTexts/shared.py:312
+#: /usr/local/bin/CompareParallelTexts/shared.py:393
+#: /usr/local/bin/CompareParallelTexts/shared.py:415
+#: /usr/local/bin/CompareParallelTexts/shared.py:460
+#: /usr/local/bin/CompareParallelTexts/shared.py:470
+#: /usr/local/bin/CompareParallelTexts/shared.py:537
+#: /usr/local/bin/CompareParallelTexts/shared.py:544
+#: /usr/local/bin/CompareParallelTexts/shared.py:558
+#: /usr/local/bin/CompareParallelTexts/shared.py:583
+#: /usr/local/bin/CompareParallelTexts/shared.py:603
+#: /usr/local/bin/CompareParallelTexts/shared.py:609
+#: /usr/local/bin/CompareParallelTexts/shared.py:634
+#: /usr/local/bin/CompareParallelTexts/shared.py:659
+#: /usr/local/bin/CompareParallelTexts/shared.py:706
+#: /usr/local/bin/CompareParallelTexts/shared.py:713
+#: /usr/local/bin/CompareParallelTexts/shared.py:732
+#: /usr/local/bin/CompareParallelTexts/shared.py:744
+#: /usr/local/bin/CompareParallelTexts/shared.py:770
+#: /usr/local/bin/CompareParallelTexts/shared.py:798
+#: /usr/local/bin/CompareParallelTexts/shared.py:809
+#: /usr/local/bin/CompareParallelTexts/shared.py:820
+#: /usr/local/bin/CompareParallelTexts/shared.py:830
+#: /usr/local/bin/CompareParallelTexts/shared.py:865
+#: /usr/local/bin/CompareParallelTexts/shared.py:1026
+#: /usr/local/bin/CompareParallelTexts/shared.py:1069
+#: /usr/local/bin/CompareParallelTexts/shared.py:1144
+#: /usr/local/bin/CompareParallelTexts/shared.py:1170
+#: /usr/local/bin/CompareParallelTexts/shared.py:1182
+#: /usr/local/bin/CompareParallelTexts/shared.py:1346
+#: /usr/local/bin/CompareParallelTexts/shared.py:1352
+#: /usr/local/bin/CompareParallelTexts/shared.py:1365
+#: /usr/local/bin/CompareParallelTexts/shared.py:1370
+#: /usr/local/bin/CompareParallelTexts/shared.py:1384
+#: /usr/local/bin/CompareParallelTexts/shared.py:1389
+#: /usr/local/bin/CompareParallelTexts/shared.py:1403
+#: /usr/local/bin/CompareParallelTexts/shared.py:1408
+#: /usr/local/bin/CompareParallelTexts/shared.py:1426
+#: /usr/local/bin/CompareParallelTexts/shared.py:1441
+#: /usr/local/bin/CompareParallelTexts/shared.py:1473
+#: /usr/local/bin/CompareParallelTexts/shared.py:1489
+#: /usr/local/bin/CompareParallelTexts/shared.py:1506
+#: /usr/local/bin/CompareParallelTexts/shared.py:1511
+#: /usr/local/bin/CompareParallelTexts/shared.py:1552
+#: /usr/local/bin/CompareParallelTexts/shared.py:1560
+#: /usr/local/bin/CompareParallelTexts/shared.py:1609
+#: /usr/local/bin/CompareParallelTexts/shared.py:1616
+#: /usr/local/bin/CompareParallelTexts/shared.py:1639
+#: /usr/local/bin/CompareParallelTexts/shared.py:1656
+#: /usr/local/bin/CompareParallelTexts/shared.py:1663
+#: /usr/local/bin/CompareParallelTexts/shared.py:1674
+#: /usr/local/bin/CompareParallelTexts/shared.py:1685
+#: /usr/local/bin/CompareParallelTexts/shared.py:1692
+#: /usr/local/bin/CompareParallelTexts/shared.py:1714
+#: /usr/local/bin/CompareParallelTexts/shared.py:1731
+#: /usr/local/bin/CompareParallelTexts/shared.py:1740
+#: /usr/local/bin/CompareParallelTexts/shared.py:1776
+#: /usr/local/bin/CompareParallelTexts/shared.py:1882
+#: /usr/local/bin/CompareParallelTexts/shared.py:1927
+#: /usr/local/bin/CompareParallelTexts/shared.py:1942
+#: /usr/local/bin/CompareParallelTexts/shared.py:1983
+#: /usr/local/bin/CompareParallelTexts/shared.py:1990
+#: /usr/local/bin/CompareParallelTexts/shared.py:2004
+#: /usr/local/bin/CompareParallelTexts/shared.py:2041
+#: /usr/local/bin/CompareParallelTexts/shared.py:2058
+#: /usr/local/bin/CompareParallelTexts/shared.py:2064
+#: /usr/local/bin/CompareParallelTexts/shared.py:2090
+#: /usr/local/bin/CompareParallelTexts/shared.py:2116
+#: /usr/local/bin/CompareParallelTexts/shared.py:2167
+#: /usr/local/bin/CompareParallelTexts/shared.py:2174
+#: /usr/local/bin/CompareParallelTexts/shared.py:2193
+#: /usr/local/bin/CompareParallelTexts/shared.py:2207
+#: /usr/local/bin/CompareParallelTexts/shared.py:2248
+#: /usr/local/bin/CompareParallelTexts/shared.py:2293
+#: /usr/local/bin/CompareParallelTexts/shared.py:2307
+#: /usr/local/bin/CompareParallelTexts/shared.py:2318
+#: /usr/local/bin/CompareParallelTexts/shared.py:2333
+#: /usr/local/bin/CompareParallelTexts/shared.py:2339
+#: /usr/local/bin/CompareParallelTexts/shared.py:2360
+#: /usr/local/bin/CompareParallelTexts/shared.py:2386
+#: /usr/local/bin/CompareParallelTexts/shared.py:2400
+#: /usr/local/bin/CompareParallelTexts/shared.py:2425
+#: /usr/local/bin/CompareParallelTexts/shared.py:2484
+#: /usr/local/bin/CompareParallelTexts/shared.py:2511
+#: /usr/local/bin/CompareParallelTexts/shared.py:2517
+#: /usr/local/bin/CompareParallelTexts/shared.py:2528
+#: /usr/local/bin/CompareParallelTexts/shared.py:2535
+#: /usr/local/bin/CompareParallelTexts/shared.py:2681
+#: /usr/local/bin/CompareParallelTexts/shared.py:2697
+#: /usr/local/bin/CompareParallelTexts/shared.py:2737
+#: /usr/local/bin/CompareParallelTexts/shared.py:2748
+#: /usr/local/bin/CompareParallelTexts/shared.py:2777
+#: /usr/local/bin/CompareParallelTexts/shared.py:2824
+#: /usr/local/bin/CompareParallelTexts/shared.py:2836
+#: /usr/local/bin/CompareParallelTexts/shared.py:2862
+#: /usr/local/bin/CompareParallelTexts/shared.py:2869
+#: /usr/local/bin/CompareParallelTexts/shared.py:2895
+#: /usr/local/bin/CompareParallelTexts/shared.py:3130
+#: /usr/local/bin/CompareParallelTexts/shared.py:3149
+#: /usr/local/bin/CompareParallelTexts/shared.py:3189
+#: /usr/local/bin/CompareParallelTexts/shared.py:3226
+#: /usr/local/bin/CompareParallelTexts/shared.py:3236
+#: /usr/local/bin/CompareParallelTexts/shared.py:3269
+#: /usr/local/bin/CompareParallelTexts/shared.py:3288
+#: /usr/local/bin/CompareParallelTexts/shared.py:3298
+#: /usr/local/bin/CompareParallelTexts/shared.py:3317
+#: /usr/local/bin/CompareParallelTexts/shared.py:3336
+#: /usr/local/bin/CompareParallelTexts/shared.py:3351
+#: /usr/local/bin/CompareParallelTexts/shared.py:3366
+#: /usr/local/bin/CompareParallelTexts/shared.py:3385
+#: /usr/local/bin/CompareParallelTexts/shared.py:3396
+#: /usr/local/bin/CompareParallelTexts/shared.py:3410
+#: /usr/local/bin/CompareParallelTexts/shared.py:3424
+#: /usr/local/bin/CompareParallelTexts/shared.py:3438
+#: /usr/local/bin/CompareParallelTexts/shared.py:3470
+#: /usr/local/bin/CompareParallelTexts/shared.py:3476
+#: /usr/local/bin/CompareParallelTexts/shared.py:3482
+#: /usr/local/bin/CompareParallelTexts/shared.py:3503
+#: /usr/local/bin/CompareParallelTexts/shared.py:3509
+#: /usr/local/bin/CompareParallelTexts/shared.py:3526
+#: /usr/local/bin/CompareParallelTexts/shared.py:3551
+#: /usr/local/bin/CompareParallelTexts/shared.py:3562
+#: /usr/local/bin/CompareParallelTexts/shared.py:3575
+#: /usr/local/bin/CompareParallelTexts/shared.py:3590
+#: /usr/local/bin/CompareParallelTexts/shared.py:3606
+#: /usr/local/bin/CompareParallelTexts/shared.py:3623
+#: /usr/local/bin/CompareParallelTexts/shared.py:3857
+#: /usr/local/bin/CompareParallelTexts/shared.py:3866
+#: /usr/local/bin/CompareParallelTexts/shared.py:3875
+#: /usr/local/bin/CompareParallelTexts/shared.py:3933
+#: /usr/local/bin/CompareParallelTexts/shared.py:3982
+#: /usr/local/bin/CompareParallelTexts/shared.py:3995
+#: /usr/local/bin/CompareParallelTexts/shared.py:4090
+#: /usr/local/bin/CompareParallelTexts/shared.py:4106
+#: /usr/local/bin/CompareParallelTexts/shared.py:4112
+#: /usr/local/bin/CompareParallelTexts/shared.py:4128
+#: /usr/local/bin/CompareParallelTexts/shared.py:4133
+#: /usr/local/bin/CompareParallelTexts/CompareParallelTexts.py:46
+msgid "WARNING"
+msgstr "ПРЕДУПРЕЖДЕНИЕ"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:76
+#, python-format
+msgid "An unknown color \"%s\"!"
+msgstr "Неизвестный цвет \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:81
+#: /usr/local/bin/CompareParallelTexts/shared.py:626
+#: /usr/local/bin/CompareParallelTexts/shared.py:651
+#: /usr/local/bin/CompareParallelTexts/shared.py:2082
+#: /usr/local/bin/CompareParallelTexts/shared.py:2108
+#, python-format
+msgid "The condition \"%s\" is not observed!"
+msgstr "Условие \"%s\" не выполнено!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:128
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:133
+msgid "Failed to insert the text!"
+msgstr "Не удалось вставить текст!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:138
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:157
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:172
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:183
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:198
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:220
+#, python-format
+msgid "A logic error: unknown object type: \"%s\"!"
+msgstr "Логическая ошибка: неизвестный тип объекта: \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:177
+msgid "Text:"
+msgstr "Текст:"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:192
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:633
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:634
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1106
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1107
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1648
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1649
+msgid "Quit"
+msgstr "Выйти"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:194
+msgid "Save and close"
+msgstr "Запомнить и выйти"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:214
+#: /usr/local/bin/CompareParallelTexts/shared.py:771
+#: /usr/local/bin/CompareParallelTexts/shared.py:1553
+#, python-format
+msgid "File \"%s\" has not been found!"
+msgstr "Файл \"%s\" не найден!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:269
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:997
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2816
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2827
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3131
+msgid "Title:"
+msgstr "Заголовок"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:311
+msgid "Find:"
+msgstr "Найти:"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:354
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:464
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:469
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:476
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:494
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:499
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:507
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1058
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1368
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1462
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1873
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2212
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2225
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2606
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2619
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2647
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2652
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2731
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2743
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3037
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3069
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3076
+#: /usr/local/bin/CompareParallelTexts/shared.py:344
+#: /usr/local/bin/CompareParallelTexts/shared.py:429
+#: /usr/local/bin/CompareParallelTexts/shared.py:482
+#: /usr/local/bin/CompareParallelTexts/shared.py:524
+#: /usr/local/bin/CompareParallelTexts/shared.py:838
+#: /usr/local/bin/CompareParallelTexts/shared.py:889
+#: /usr/local/bin/CompareParallelTexts/shared.py:1420
+#: /usr/local/bin/CompareParallelTexts/shared.py:1569
+#: /usr/local/bin/CompareParallelTexts/shared.py:1587
+#: /usr/local/bin/CompareParallelTexts/shared.py:1634
+#: /usr/local/bin/CompareParallelTexts/shared.py:1648
+#: /usr/local/bin/CompareParallelTexts/shared.py:1709
+#: /usr/local/bin/CompareParallelTexts/shared.py:1723
+#: /usr/local/bin/CompareParallelTexts/shared.py:1769
+#: /usr/local/bin/CompareParallelTexts/shared.py:1782
+#: /usr/local/bin/CompareParallelTexts/shared.py:1888
+#: /usr/local/bin/CompareParallelTexts/shared.py:1937
+#: /usr/local/bin/CompareParallelTexts/shared.py:1970
+#: /usr/local/bin/CompareParallelTexts/shared.py:2224
+#: /usr/local/bin/CompareParallelTexts/shared.py:2326
+#: /usr/local/bin/CompareParallelTexts/shared.py:2416
+#: /usr/local/bin/CompareParallelTexts/shared.py:2431
+#: /usr/local/bin/CompareParallelTexts/shared.py:2471
+#: /usr/local/bin/CompareParallelTexts/shared.py:2478
+#: /usr/local/bin/CompareParallelTexts/shared.py:2667
+#: /usr/local/bin/CompareParallelTexts/shared.py:2730
+#: /usr/local/bin/CompareParallelTexts/shared.py:2754
+#: /usr/local/bin/CompareParallelTexts/shared.py:2771
+#: /usr/local/bin/CompareParallelTexts/shared.py:2786
+#: /usr/local/bin/CompareParallelTexts/shared.py:2817
+#: /usr/local/bin/CompareParallelTexts/shared.py:3174
+#: /usr/local/bin/CompareParallelTexts/shared.py:3910
+#: /usr/local/bin/CompareParallelTexts/shared.py:3955
+#: /usr/local/bin/CompareParallelTexts/shared.py:4084
+#: /usr/local/bin/CompareParallelTexts/shared.py:4169
+#: /usr/local/bin/CompareParallelTexts/shared.py:4175
+#: /usr/local/bin/CompareParallelTexts/shared.py:4181
+#: /usr/local/bin/CompareParallelTexts/shared.py:4221
+msgid "INFO"
+msgstr "ИНФОРМАЦИЯ"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:355
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:477
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:508
+msgid "No matches!"
+msgstr "Совпадений нет!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:362
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:378
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:389
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:399
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:430
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:452
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:482
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:513
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:528
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:539
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2637
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2653
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2669
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2685
+#: /usr/local/bin/CompareParallelTexts/shared.py:289
+#: /usr/local/bin/CompareParallelTexts/shared.py:299
+#: /usr/local/bin/CompareParallelTexts/shared.py:313
+#: /usr/local/bin/CompareParallelTexts/shared.py:394
+#: /usr/local/bin/CompareParallelTexts/shared.py:416
+#: /usr/local/bin/CompareParallelTexts/shared.py:545
+#: /usr/local/bin/CompareParallelTexts/shared.py:610
+#: /usr/local/bin/CompareParallelTexts/shared.py:635
+#: /usr/local/bin/CompareParallelTexts/shared.py:660
+#: /usr/local/bin/CompareParallelTexts/shared.py:714
+#: /usr/local/bin/CompareParallelTexts/shared.py:733
+#: /usr/local/bin/CompareParallelTexts/shared.py:745
+#: /usr/local/bin/CompareParallelTexts/shared.py:799
+#: /usr/local/bin/CompareParallelTexts/shared.py:810
+#: /usr/local/bin/CompareParallelTexts/shared.py:821
+#: /usr/local/bin/CompareParallelTexts/shared.py:831
+#: /usr/local/bin/CompareParallelTexts/shared.py:866
+#: /usr/local/bin/CompareParallelTexts/shared.py:1353
+#: /usr/local/bin/CompareParallelTexts/shared.py:1371
+#: /usr/local/bin/CompareParallelTexts/shared.py:1390
+#: /usr/local/bin/CompareParallelTexts/shared.py:1409
+#: /usr/local/bin/CompareParallelTexts/shared.py:1427
+#: /usr/local/bin/CompareParallelTexts/shared.py:1442
+#: /usr/local/bin/CompareParallelTexts/shared.py:1490
+#: /usr/local/bin/CompareParallelTexts/shared.py:1512
+#: /usr/local/bin/CompareParallelTexts/shared.py:1617
+#: /usr/local/bin/CompareParallelTexts/shared.py:1640
+#: /usr/local/bin/CompareParallelTexts/shared.py:1664
+#: /usr/local/bin/CompareParallelTexts/shared.py:1675
+#: /usr/local/bin/CompareParallelTexts/shared.py:1693
+#: /usr/local/bin/CompareParallelTexts/shared.py:1715
+#: /usr/local/bin/CompareParallelTexts/shared.py:1741
+#: /usr/local/bin/CompareParallelTexts/shared.py:1883
+#: /usr/local/bin/CompareParallelTexts/shared.py:1928
+#: /usr/local/bin/CompareParallelTexts/shared.py:1943
+#: /usr/local/bin/CompareParallelTexts/shared.py:1991
+#: /usr/local/bin/CompareParallelTexts/shared.py:2065
+#: /usr/local/bin/CompareParallelTexts/shared.py:2091
+#: /usr/local/bin/CompareParallelTexts/shared.py:2117
+#: /usr/local/bin/CompareParallelTexts/shared.py:2175
+#: /usr/local/bin/CompareParallelTexts/shared.py:2194
+#: /usr/local/bin/CompareParallelTexts/shared.py:2208
+#: /usr/local/bin/CompareParallelTexts/shared.py:2249
+#: /usr/local/bin/CompareParallelTexts/shared.py:2308
+#: /usr/local/bin/CompareParallelTexts/shared.py:2319
+#: /usr/local/bin/CompareParallelTexts/shared.py:2340
+#: /usr/local/bin/CompareParallelTexts/shared.py:2361
+#: /usr/local/bin/CompareParallelTexts/shared.py:2387
+#: /usr/local/bin/CompareParallelTexts/shared.py:2401
+#: /usr/local/bin/CompareParallelTexts/shared.py:2426
+#: /usr/local/bin/CompareParallelTexts/shared.py:2485
+#: /usr/local/bin/CompareParallelTexts/shared.py:2518
+#: /usr/local/bin/CompareParallelTexts/shared.py:2536
+#: /usr/local/bin/CompareParallelTexts/shared.py:2749
+#: /usr/local/bin/CompareParallelTexts/shared.py:2825
+#: /usr/local/bin/CompareParallelTexts/shared.py:2837
+#: /usr/local/bin/CompareParallelTexts/shared.py:2870
+#: /usr/local/bin/CompareParallelTexts/shared.py:2896
+#: /usr/local/bin/CompareParallelTexts/shared.py:3190
+#: /usr/local/bin/CompareParallelTexts/shared.py:3227
+#: /usr/local/bin/CompareParallelTexts/shared.py:3237
+#: /usr/local/bin/CompareParallelTexts/shared.py:3270
+#: /usr/local/bin/CompareParallelTexts/shared.py:3289
+#: /usr/local/bin/CompareParallelTexts/shared.py:3299
+#: /usr/local/bin/CompareParallelTexts/shared.py:3318
+#: /usr/local/bin/CompareParallelTexts/shared.py:3337
+#: /usr/local/bin/CompareParallelTexts/shared.py:3352
+#: /usr/local/bin/CompareParallelTexts/shared.py:3367
+#: /usr/local/bin/CompareParallelTexts/shared.py:3386
+#: /usr/local/bin/CompareParallelTexts/shared.py:3397
+#: /usr/local/bin/CompareParallelTexts/shared.py:3411
+#: /usr/local/bin/CompareParallelTexts/shared.py:3425
+#: /usr/local/bin/CompareParallelTexts/shared.py:3439
+#: /usr/local/bin/CompareParallelTexts/shared.py:3483
+#: /usr/local/bin/CompareParallelTexts/shared.py:3510
+#: /usr/local/bin/CompareParallelTexts/shared.py:3527
+#: /usr/local/bin/CompareParallelTexts/shared.py:3563
+#: /usr/local/bin/CompareParallelTexts/shared.py:3576
+#: /usr/local/bin/CompareParallelTexts/shared.py:3591
+#: /usr/local/bin/CompareParallelTexts/shared.py:3607
+#: /usr/local/bin/CompareParallelTexts/shared.py:3624
+#: /usr/local/bin/CompareParallelTexts/shared.py:3983
+#: /usr/local/bin/CompareParallelTexts/shared.py:3996
+msgid "Operation has been canceled."
+msgstr "Операция отменена."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:465
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:495
+msgid "Only one match has been found!"
+msgstr "Найдено 1 совпадение!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:470
+msgid "No more matches, continuing from the top!"
+msgstr "Совпадений больше нет, поиск продолжен с начала!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:500
+msgid "No more matches, continuing from the bottom!"
+msgstr "Совпадений больше нет, поиск продолжен с конца!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:749
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:992
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1706
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1728
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2903
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3215
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3226
+#: /usr/local/bin/CompareParallelTexts/shared.py:604
+#: /usr/local/bin/CompareParallelTexts/shared.py:1546
+#: /usr/local/bin/CompareParallelTexts/shared.py:1922
+#: /usr/local/bin/CompareParallelTexts/shared.py:2059
+#: /usr/local/bin/CompareParallelTexts/shared.py:2682
+#: /usr/local/bin/CompareParallelTexts/shared.py:2863
+#: /usr/local/bin/CompareParallelTexts/shared.py:3858
+#: /usr/local/bin/CompareParallelTexts/shared.py:3934
+#: /usr/local/bin/CompareParallelTexts/shared.py:4113
+#: /usr/local/bin/CompareParallelTexts/shared.py:4134
+msgid "Empty input is not allowed!"
+msgstr "Пустые входные данные не допускаются!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:760
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:913
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1148
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1175
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2892
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2920
+msgid "The parent has already been destroyed."
+msgstr "Родительский виджет уже был разрушен."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:801
+#, python-format
+msgid "Failed to remove the tag %s in the widget %s in positions %s-%s!"
+msgstr "Не удалось удалить тэг %s в виджете %s для позиций %s-%s!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:813
+msgid "DEBUG-ERROR"
+msgstr "ОШИБКА ПРИ ОТЛАДКЕ"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:814
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:902
+#, python-format
+msgid "Element \"%s\" has not been found in fragment \"%s\"!"
+msgstr "Элемент \"%s\" не был найден во фрагменте \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:829
+#, python-format
+msgid "Failed to add tag \"%s\" for positions %s-%s!"
+msgstr "Не удалось добавить тэг \"%s\" для позиций %s-%s!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:842
+#, python-format
+msgid "Failed to configure tag \"%s\" to have the background of color \"%s\"!"
+msgstr "Не удалось назначить тэгу \"%s\" фон \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:851
+#, python-format
+msgid "Failed to configure tag \"%s\" to have the foreground of color \"%s\"!"
+msgstr "Не удалось назначить тэгу \"%s\" цвет \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:860
+#, python-format
+msgid "Failed to configure tag \"%s\" to have the font \"%s\"!"
+msgstr "Не удалось назначить тэгу \"%s\" шрифт \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:878
+#, python-format
+msgid "Failed to insert mark \"%s\" in position \"%s\"!"
+msgstr "Не удается вставить метку \"%s\" для позиции \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:895
+#, python-format
+msgid "Failed to remove mark \"%s\"!"
+msgstr "Не удалось удалить метку \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:965
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:976
+#, python-format
+msgid "Failed to shift screen to label \"%s\"!"
+msgstr "Не удалось сдвинуть экран до метки \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1011
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1052
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1557
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2899
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2929
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3141
+#: /usr/local/bin/CompareParallelTexts/shared.py:208
+#: /usr/local/bin/CompareParallelTexts/shared.py:2599
+#: /usr/local/bin/CompareParallelTexts/shared.py:3061
+#: /usr/local/bin/CompareParallelTexts/shared.py:3464
+#: /usr/local/bin/CompareParallelTexts/shared.py:3789
+msgid "DEBUG"
+msgstr "ОТЛАДКА"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1012
+#, python-format
+msgid "Got position: \"%s\""
+msgstr "Получена позиция: \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1018
+msgid "Cannot return a cursor position!"
+msgstr "Не удалось вернуть позицию курсора!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1053
+#, python-format
+msgid "%d tags to assign"
+msgstr "Создание %d тэгов"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1059
+msgid "Spelling seems to be correct."
+msgstr "Ошибок правописания не обнаружено."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1064
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2360
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2604
+#: /usr/local/bin/CompareParallelTexts/shared.py:227
+#: /usr/local/bin/CompareParallelTexts/shared.py:333
+#: /usr/local/bin/CompareParallelTexts/shared.py:385
+#: /usr/local/bin/CompareParallelTexts/shared.py:407
+#: /usr/local/bin/CompareParallelTexts/shared.py:764
+#: /usr/local/bin/CompareParallelTexts/shared.py:1799
+#: /usr/local/bin/CompareParallelTexts/shared.py:3131
+#: /usr/local/bin/CompareParallelTexts/shared.py:3150
+msgid "Not enough input data!"
+msgstr "Недостаточно входных данных!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1369
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1874
+msgid "Nothing to do!"
+msgstr "Действие не требуется."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1455
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1900
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2617
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2740
+#: /usr/local/bin/CompareParallelTexts/shared.py:365
+#: /usr/local/bin/CompareParallelTexts/shared.py:1909
+#, python-format
+msgid ""
+"An unknown mode \"%s\"!\n"
+"\n"
+"The following modes are supported: \"%s\"."
+msgstr ""
+"Неизвестный режим \"%s\"!\n"
+"\n"
+"Поддерживаются следующие режимы: \"%s\"."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1463
+#, python-format
+msgid "Changing \"%s\" widget geometry to \"%dx%d+%d+%d\""
+msgstr "Изменение геометрии виджета \"%s\" на \"%dx%d+%d+%d\""
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1558
+#, python-format
+msgid "Remove item #%d"
+msgstr "Не удалось удалить метку \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1563
+#, python-format
+msgid "No item #%d!"
+msgstr "Элемент №%d отсутствует!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:1723
+#, python-format
+msgid "Item \"%s\" is not in list!"
+msgstr "Элемент \"%s\" не в списке!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2092
+msgid "Failed to return selection in the Tkinter widget!"
+msgstr "Не удается вернуть диапазон выделения в виджете Tkinter!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2151
+msgid "Paste a special symbol"
+msgstr "Вставить специальный символ"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2213
+#, python-format
+msgid "Saved geometry: %s"
+msgstr "Сохранена геометрия: %s"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2226
+#, python-format
+msgid "Restoring geometry: %s"
+msgstr "Восстановление геометрии: %s"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2232
+msgid "Failed to restore geometry!"
+msgstr "Не удалось восстановить геометрию!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2254
+msgid "Failed to change window properties!"
+msgstr "Не удалось изменить свойства окна!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2355
+msgid "Failed to get the window handle!"
+msgstr "Не удалось получить дескриптор окна!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2384
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2431
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2434
+msgid "Please wait..."
+msgstr "Подождите..."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2505
+#, python-format
+msgid "Wrong font: \"%s\"!"
+msgstr "Неправильный шрифт: \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2592
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2819
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2827
+msgid "Message"
+msgstr "Сообщение"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2610
+msgid "CRITICAL"
+msgstr "КРИТИЧЕСКАЯ ОШИБКА"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2612
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2620
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2663
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2668
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2733
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2743
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2785
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2791
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3061
+#: /usr/local/bin/CompareParallelTexts/shared.py:170
+msgid "QUESTION"
+msgstr "ВОПРОС"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2786
+msgid "Yes"
+msgstr "Да"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2787
+msgid "No"
+msgstr "Нет"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2790
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3325
+msgid "Cancel"
+msgstr "Отмена"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2794
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2808
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3339
+msgid "Accept and close"
+msgstr "Принять и закрыть"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2802
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3327
+msgid "Reject and close"
+msgstr "Отказаться и закрыть"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2863
+#, python-format
+msgid "Picture \"%s\" was not found!"
+msgstr "Изображение \"%s\" не найдено!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2885
+msgid "A clipboard error has occurred!"
+msgstr "Ошибка буфера обмена!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2897
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2925
+msgid "An unknown error has occurred."
+msgstr "Произошла неизвестная ошибка."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:2913
+msgid "Failed to paste the clipboard contents!"
+msgstr "Ошибка вставки из буфера обмена."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3038
+#, python-format
+msgid "Add %s"
+msgstr "Добавить %s"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3077
+#, python-format
+msgid "Close %d objs"
+msgstr "Закрыть %d объектов"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3085
+#, python-format
+msgid "Widget \"%s\" does not have a \"close\" action!"
+msgstr "У виджета \"%s\" нет действия \"close\"!"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3142
+#: /usr/local/bin/CompareParallelTexts/shared.py:2772
+#: /usr/local/bin/CompareParallelTexts/shared.py:2818
+msgid "Nothing to do."
+msgstr "Действие не требуется."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3244
+msgid "Text with instructions:"
+msgstr "Текст с инструкцией:"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3276
+msgid "Parent is not supported, using the default one."
+msgstr "Родительский виджет не поддерживается, используется виджет по умолчанию."
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3331
+msgid "Clear"
+msgstr "Очистить"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3333
+msgid "Delete all text"
+msgstr "Удалить весь текст"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3387
+msgid "Manage subscriptions"
+msgstr "Управление подписками"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3416
+msgid "Add"
+msgstr "Добавить"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3423
+msgid "Remove"
+msgstr "Удалить"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3499
+msgid "Compare texts:"
+msgstr "Сравните тексты:"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3614
+msgid "Enter a channel URL, one URL per a line:"
+msgstr "Введите адрес канала, по URL на строку:"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3616
+#, python-format
+msgid "Patterns: %s"
+msgstr "Примеры: %s"
+
+#: /usr/local/bin/CompareParallelTexts/sharedGUI.py:3617
+msgid "Manage blacklist"
+msgstr "Управление черным списком"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:171
+#, python-format
+msgid "ATTENTION: Do yo really want to rewrite file \"%s\"?"
+msgstr "ВНИМАНИЕ: Перезаписать файл \"%s\"?"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:209
+#, python-format
+msgid "Custom arguments: \"%s\""
+msgstr "Особые параметры: \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:221
+#, python-format
+msgid "Failed to run \"%s\"!"
+msgstr "Не удалось запустить \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:236
+#: /usr/local/bin/CompareParallelTexts/shared.py:246
+#: /usr/local/bin/CompareParallelTexts/shared.py:256
+msgid "Unable to open the file in an external program. You should probably check the file associations."
+msgstr "Не удается открыть файл во внешней программе. Возможно, Вам стоит проверить ассоциации файлов."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:345
+#: /usr/local/bin/CompareParallelTexts/shared.py:1889
+#, python-format
+msgid "Write file \"%s\""
+msgstr "Запись файла \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:355
+#: /usr/local/bin/CompareParallelTexts/shared.py:1902
+#, python-format
+msgid "Unable to write file \"%s\"!"
+msgstr "Не удается записать файл \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:447
+msgid "***** Start of log. *****"
+msgstr "***** Начало записи лога. *****"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:525
+#: /usr/local/bin/CompareParallelTexts/shared.py:1971
+#, python-format
+msgid "Entries deleted: %d (%d-%d)"
+msgstr "Удалено вхождений: %d (%d-%d)"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:538
+#: /usr/local/bin/CompareParallelTexts/shared.py:707
+#: /usr/local/bin/CompareParallelTexts/shared.py:1984
+#: /usr/local/bin/CompareParallelTexts/shared.py:2168
+#, python-format
+msgid "File \"%s\" is not sortable!"
+msgstr "Файл \"%s\" не подлежит сортировке!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:584
+#, python-format
+msgid "Dictionary \"%s\": Incorrect line #%d: \"%s\"!"
+msgstr "Словарь \"%s\": Неправильная строка №%d: \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:839
+#: /usr/local/bin/CompareParallelTexts/shared.py:2225
+#, python-format
+msgid "Load file \"%s\""
+msgstr "Загрузка файла \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:858
+#: /usr/local/bin/CompareParallelTexts/shared.py:2237
+#, python-format
+msgid "Unable to read file \"%s\"!"
+msgstr "Не удается прочитать файл \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:890
+#, python-format
+msgid "Convert \"%s\" to an integer"
+msgstr "Конвертация \"%s\" в целое число"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:895
+#, python-format
+msgid "Integer is required at input, but found \"%s\"! Return 0"
+msgstr "На входе должно быть целое число, но получено \"%s\"! Возвращаю 0"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1027
+#, python-format
+msgid "Different number of opening and closing brackets: \"%s\": %d; \"%s\": %d!"
+msgstr "Разное число открывающих и закрывающих скобок: \"%s\": %d; \"%s\": %d!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1070
+msgid "Empty strings are not supported!"
+msgstr "Поддерживаются только непустые строки!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1145
+msgid "Commas and/or semicolons or line breaks can be used, but not altogether!"
+msgstr "Можно использовать запятые и/или точки с запятой или переносы строк, но не все сразу!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1171
+#, python-format
+msgid "Failed to convert \"%s\" to an integer!"
+msgstr "Не удалось конвертировать \"%s\" в целое число!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1183
+#, python-format
+msgid "Failed to convert \"%s\" to a floating-point number!"
+msgstr "Не удалось конвертировать \"%s\" в число с плавающей точкой!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1347
+#: /usr/local/bin/CompareParallelTexts/shared.py:1366
+#: /usr/local/bin/CompareParallelTexts/shared.py:1385
+#: /usr/local/bin/CompareParallelTexts/shared.py:1404
+#: /usr/local/bin/CompareParallelTexts/shared.py:1507
+msgid "Set time parameters are incorrect or not supported."
+msgstr "Заданные параметры времени неверны или не поддерживаются."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1421
+msgid "Note: it will be Monday!"
+msgstr "Обратите внимание: указанная дата - понедельник!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1448
+msgid "Jan"
+msgstr "янв"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1450
+msgid "Feb"
+msgstr "фев"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1452
+msgid "Mar"
+msgstr "мар"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1454
+msgid "Apr"
+msgstr "апр"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1456
+msgid "May"
+msgstr "май"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1458
+msgid "Jun"
+msgstr "июн"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1460
+msgid "Jul"
+msgstr "июл"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1462
+msgid "Aug"
+msgstr "авг"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1464
+msgid "Sep"
+msgstr "сен"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1466
+msgid "Oct"
+msgstr "окт"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1468
+msgid "Nov"
+msgstr "ноя"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1470
+msgid "Dec"
+msgstr "дек"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1561
+#, python-format
+msgid "The object \"%s\" is not a file!"
+msgstr "Объект \"%s\" не является файлом!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1570
+#: /usr/local/bin/CompareParallelTexts/shared.py:2432
+#, python-format
+msgid "Copy \"%s\" to \"%s\""
+msgstr "Копирование \"%s\" в \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1578
+#, python-format
+msgid "Failed to copy file \"%s\" to \"%s\"!"
+msgstr "Не удалось скопировать файл \"%s\" в \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1588
+#, python-format
+msgid "Move \"%s\" to \"%s\""
+msgstr "Перемещение \"%s\" в \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1596
+#, python-format
+msgid "Failed to move \"%s\" to \"%s\"!"
+msgstr "Не удалось переместить \"%s\" в \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1610
+#: /usr/local/bin/CompareParallelTexts/shared.py:1686
+#, python-format
+msgid "Failed to get the date of the file \"%s\"!"
+msgstr "Не удалось определить дату файла \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1626
+#, python-format
+msgid "Unable to copy the file \"%s\" to iself!"
+msgstr "Нельзя скопировать файл \"%s\" сам в себя!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1635
+#: /usr/local/bin/CompareParallelTexts/shared.py:1710
+#: /usr/local/bin/CompareParallelTexts/shared.py:1938
+msgid "Operation has been canceled by the user."
+msgstr "Операция отменена пользователем."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1649
+#: /usr/local/bin/CompareParallelTexts/shared.py:2327
+#, python-format
+msgid "Delete \"%s\""
+msgstr "Удаление \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1657
+#, python-format
+msgid "Failed to delete file \"%s\"!"
+msgstr "Не удается удалить файл \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1702
+msgid "Moving is not necessary, because the source and destination are identical."
+msgstr "Перемещение не требуется, поскольку на входе и выходе указан один и тот же объект."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1724
+#, python-format
+msgid "Change the time of the file \"%s\" to %s"
+msgstr "Изменение времени файла \"%s\" на %s"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1732
+#, python-format
+msgid "Failed to change the time of the file \"%s\" to \"%s\"!"
+msgstr "Не удалось изменить время файла \"%s\" на \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1770
+#: /usr/local/bin/CompareParallelTexts/shared.py:2417
+#, python-format
+msgid "Directory \"%s\" already exists."
+msgstr "Каталог \"%s\" уже существует."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1777
+#, python-format
+msgid "The path \"%s\" is invalid!"
+msgstr "Путь \"%s\" неверен!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1783
+#, python-format
+msgid "Create directory \"%s\""
+msgstr "Создание каталога \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:1792
+#, python-format
+msgid "Failed to create directory \"%s\"!"
+msgstr "Не удается создать каталог \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2042
+msgid "The following lines cannot be parsed:"
+msgstr "Не удается обработать следующие строки:"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2334
+#, python-format
+msgid "Failed to delete directory \"%s\"! Delete it manually."
+msgstr "Не удается удалить каталог \"%s\"! Удалите его вручную."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2410
+#, python-format
+msgid "Unable to copy \"%s\" to iself!"
+msgstr "Нельзя скопировать \"%s\" сам в себя!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2440
+#, python-format
+msgid "Failed to copy \"%s\" to \"%s\"!"
+msgstr "Не удалось скопировать \"%s\" в \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2458
+msgid "The following sections and/or keys are missing:"
+msgstr "Отсутствуют следующие разделы и/или ключи:"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2472
+#, python-format
+msgid "New value of the key \"%s\" has been loaded."
+msgstr "Загружено новое значение ключа \"%s\"."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2479
+#, python-format
+msgid "Keys loaded in total: %d, whereas %d are modified."
+msgstr "Всего загружено ключей: %d, из них измененных: %d"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2505
+#, python-format
+msgid "Missing sections: %d"
+msgstr "Отсутствующих разделов: %d"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2507
+#, python-format
+msgid "Missing keys: %d"
+msgstr "Отсутствующих ключей: %d"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2509
+msgid "The default configuration has been loaded."
+msgstr "Загружена конфигурация по умолчанию."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2529
+#, python-format
+msgid "Failed to read the configuration file \"%s\". This file must share the same directory with the program and have UTF-8 encoding (no BOM) and UNIX line break type."
+msgstr "Не удается прочитать конфигурационный файл \"%s\". Этот файл должен находиться в одном каталоге с программой и иметь кодировку utf-8 (без BOM), тип разрыва строки - UNIX."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2590
+#, python-format
+msgid "Failed to open URL \"%s\" in a default browser!"
+msgstr "Не удалось открыть адрес \"%s\" в браузере по умолчанию!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2643
+msgid "Differences:"
+msgstr "Различия:"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2668
+msgid "Texts are identical!"
+msgstr "Различий нет!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2731
+#, python-format
+msgid "Delete the symbolic link \"%s\""
+msgstr "Удаление ярлыка \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2738
+#, python-format
+msgid "Failed to remove shortcut \"%s\". Remove it manually and press OK."
+msgstr "Не удается удалить ярлык \"%s\". Удалите его вручную и нажмите OK."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2755
+#: /usr/local/bin/CompareParallelTexts/shared.py:2787
+#, python-format
+msgid "Create a symbolic link \"%s\""
+msgstr "Создание ярлыка \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2762
+#: /usr/local/bin/CompareParallelTexts/shared.py:2798
+#, python-format
+msgid "Failed to create shortcut \"%s\". Create it manually and press OK."
+msgstr "Не удается создать ярлык \"%s\". Создайте его вручную и нажмите OK."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:2891
+msgid "Failed to load an e-mail client."
+msgstr "Не удалось загрузить почтовый клиент."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:3175
+msgid "Analyze the text"
+msgstr "Анализ текста"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:3504
+#, python-format
+msgid "Failed to find words of paragraph #%d!"
+msgstr "Не удалось найти слова абзаца №%d!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:3867
+#: /usr/local/bin/CompareParallelTexts/shared.py:3876
+msgid "The pool is empty!"
+msgstr "Пул пуст!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:3911
+#, python-format
+msgid "The operation has taken %f s."
+msgstr "Операция завершена за %f с."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:3956
+#, python-format
+msgid "Set the max number of rows to %d"
+msgstr "Задать максимальное число столбцов: %d"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:4085
+#, python-format
+msgid "[OK]: \"%s\""
+msgstr "[Успешно]: \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:4091
+#, python-format
+msgid "[FAILED]: \"%s\""
+msgstr "[ОШИБКА]: \"%s\""
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:4107
+#, python-format
+msgid "Unable to decode \"%s\"!"
+msgstr "Не удается прочитать кодировку в \"%s\"!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:4170
+msgid "No references have been found!"
+msgstr "Ориентиры не найдены."
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:4176
+msgid "No references to the right!"
+msgstr "Справа ориентиров нет!"
+
+#: /usr/local/bin/CompareParallelTexts/shared.py:4182
+msgid "No references to the left!"
+msgstr "Слева ориентиров нет!"
+
+#: /usr/local/bin/CompareParallelTexts/CompareParallelTexts.py:47
+msgid "Cannot set a reference!"
+msgstr "Не удается установить ориентир!"
+
+#: /usr/local/bin/CompareParallelTexts/CompareParallelTexts.py:66
+msgid "Load 1st text (Cyrillic characters)"
+msgstr "Загрузить 1-й текст (кириллица)"
+
+#: /usr/local/bin/CompareParallelTexts/CompareParallelTexts.py:71
+msgid "Load 2nd text (Latin characters)"
+msgstr "Загрузить 2-й текст (латиница)"
+

@@ -1,20 +1,26 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-import gettext, gettext_windows
-gettext_windows.setup_env()
-gettext.install('CompareParallelTexts','./locale')
-
 import easygui   as eg
 import shared    as sh
 import sharedGUI as sg
+
+import gettext, gettext_windows
+gettext_windows.setup_env()
+gettext.install('CompareParallelTexts','./locale')
 
 
 # Requires 'refs'
 def synchronize(event=None):
     tkpos    = panes.pane1.cursor()
     word_no  = refs.words1.no_by_tk(tkpos=tkpos)
+    word_no  = sh.Input (func_title = 'synchronize'
+                        ,val        = word_no
+                        ).integer()
     sword_no = refs.nearest_ref(word_no=word_no)
+    sword_no = sh.Input (func_title = 'synchronize'
+                        ,val        = sword_no
+                        ).integer()
     
     sword_no2 = refs.repeated2 (word_n = refs.words1.words[sword_no]._n
                                ,count  = refs.repeated(word_no=sword_no)
@@ -79,31 +85,36 @@ if __name__ == '__main__':
             text1 = sh.Text(text=text1,Auto=True).text
             text2 = sh.Text(text=text2,Auto=True).text
             
-            words1 = sh.Words (text = text1
-                              ,Auto = False
-                              )
-            words2 = sh.Words (text = text2
-                              ,Auto = False
-                              )
-            
-            refs = sh.References (words1 = words1
-                                 ,words2 = words2
-                                 )
-            
-            panes = sg.Panes()
-            panes.reset (words1 = refs.words1
-                        ,words2 = refs.words2
+            if text1 and text2:
+                words1 = sh.Words (text = text1
+                                  ,Auto = False
+                                  )
+                words2 = sh.Words (text = text2
+                                  ,Auto = False
+                                  )
+                refs = sh.References (words1 = words1
+                                     ,words2 = words2
+                                     )
+                
+                panes = sg.Panes()
+                panes.reset (words1 = refs.words1
+                            ,words2 = refs.words2
+                            )
+                            
+                panes.pane1.insert(text1)
+                panes.pane2.insert(text2)
+                
+                sg.bind (obj      = panes.pane1
+                        ,bindings = '<ButtonRelease-1>'
+                        ,action   = synchronize
                         )
-                        
-            panes.pane1.insert(text1)
-            panes.pane2.insert(text2)
-            
-            sg.bind (obj      = panes.pane1
-                    ,bindings = '<ButtonRelease-1>'
-                    ,action   = synchronize
-                    )
-            
-            panes.show()
+                
+                panes.show()
+            else:
+                sg.Message ('CompareParallelTexts'
+                           ,_('WARNING')
+                           ,_('Empty input is not allowed!')
+                           )
     #todo: fix quitting
     sg.objs.root().kill()
     sg.objs.end()
