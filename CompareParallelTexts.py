@@ -85,6 +85,15 @@ if __name__ == '__main__':
             text1 = sh.Text(text=text1,Auto=True).text
             text2 = sh.Text(text=text2,Auto=True).text
             
+            text1 = text1.splitlines()
+            text2 = text2.splitlines()
+            
+            text1 = ['\t' + line for line in text1]
+            text2 = ['\t' + line for line in text2]
+            
+            text1 = '\n'.join(text1)
+            text2 = '\n'.join(text2)
+            
             if text1 and text2:
                 words1 = sh.Words (text = text1
                                   ,Auto = False
