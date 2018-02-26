@@ -62,6 +62,7 @@ def synchronize(event=None):
                                ,background = 'cyan'
                                )
         panes.pane2.see(ref_mark2)
+    panes.select1()
 
 
 
@@ -116,6 +117,10 @@ if __name__ == '__main__':
                 sg.bind (obj      = panes.pane1
                         ,bindings = '<ButtonRelease-1>'
                         ,action   = synchronize
+                        )
+                sg.bind (obj      = panes.pane2
+                        ,bindings = '<ButtonRelease-1>'
+                        ,action   = panes.select2
                         )
                 
                 panes.show()
