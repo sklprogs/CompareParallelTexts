@@ -7,7 +7,7 @@ import sharedGUI as sg
 
 import gettext, gettext_windows
 gettext_windows.setup_env()
-gettext.install('CompareParallelTexts','./locale')
+gettext.install('CompareParallelTexts','../resources/locale')
 
 
 # Requires 'refs'
@@ -69,7 +69,7 @@ def synchronize(event=None):
 
 if __name__ == '__main__':
     sg.objs.start()
-    
+
     file1 = eg.fileopenbox (title     = _('Load 1st text (Cyrillic characters)')
                            ,filetypes = ['*.txt']
                            )
