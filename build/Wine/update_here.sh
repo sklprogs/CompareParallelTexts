@@ -20,6 +20,6 @@ cp -u /usr/local/bin/shared/src/{gettext_windows.py,shared.py,sharedGUI.py} .
 cp -ru /home/pete/bin/CompareParallelTexts/resources/icon_64x64_cpt.ico ./resources/
 
 # (Wine-only) Copy build scripts
-cp -u /usr/local/bin/CompareParallelTexts/build/Wine/{build.sh,clean_up.sh,run.cmd,setup.py,update_cpt.sh} .
+cp -u /usr/local/bin/CompareParallelTexts/build/Wine/{build.sh,clean_up.sh,CompareParallelTexts.cmd,setup.py,update_cpt.sh} .
 
 ls .
