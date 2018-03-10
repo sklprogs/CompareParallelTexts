@@ -6,7 +6,7 @@
 rm -f ./resources/{error.gif,info.gif,question.gif,warning.gif,icon_64x64_cpt.gif}
 
 # Remove other CompareParallelTexts resources
-rm -rf ./locale
+rm -f ./resources/locale/ru/LC_MESSAGES/CompareParallelTexts.mo
 
 # Remove CompareParallelTexts Python files
 rm -f ./CompareParallelTexts.py
@@ -18,8 +18,8 @@ rm -f ./{gettext_windows.py,shared.py,sharedGUI.py}
 rm -f ./resources/icon_64x64_cpt.ico
 
 # (Wine-only) Remove build scripts
-rm -f ./{build.sh,clean_up.sh,setup.py,update_cpt.sh}
+rm -f ./{build.sh,clean_up.sh,run.cmd,setup.py,update_cpt.sh}
 
-rmdir resources
+rmdir -p resources/locale/ru/LC_MESSAGES
 
 ls .
