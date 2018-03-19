@@ -1,5 +1,8 @@
 
 
+1.4.1
+* Fix a bug - an error on quitting
+
 1.4
 * Completely rewrite the program on the basis of the new shared files
 * Delete the config file. Tune your settings directly in the Python

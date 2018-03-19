@@ -129,6 +129,5 @@ if __name__ == '__main__':
                            ,_('WARNING')
                            ,_('Empty input is not allowed!')
                            )
-    #todo: fix quitting
+    # Do not use 'sg.objs.end()' - this interferes with 'easygui'
     sg.objs.root().kill()
-    sg.objs.end()
