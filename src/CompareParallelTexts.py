@@ -14,12 +14,12 @@ gettext.install('CompareParallelTexts','../resources/locale')
 def synchronize(event=None):
     tkpos    = panes.pane1.cursor()
     word_no  = refs.words1.no_by_tk(tkpos=tkpos)
-    word_no  = sh.Input (func_title = 'synchronize'
-                        ,val        = word_no
+    word_no  = sh.Input (title = 'synchronize'
+                        ,value = word_no
                         ).integer()
     sword_no = refs.nearest_ref(word_no=word_no)
-    sword_no = sh.Input (func_title = 'synchronize'
-                        ,val        = sword_no
+    sword_no = sh.Input (title = 'synchronize'
+                        ,value = sword_no
                         ).integer()
     
     sword_no2 = refs.repeated2 (word_n = refs.words1.words[sword_no]._n
